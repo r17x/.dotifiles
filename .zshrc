@@ -43,13 +43,14 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source $ZSH/themes/geometry/geometry.zsh
+# source $ZSH/themes/geometry/geometry.zsh
 # zsh-plug init 
 source $ZPLUG_HOME/init.zsh
 # zsh-plugin
 #
-# zplug "geometry-zsh/geometry"
-# zplug "mafredri/zsh-async", from:"github", use:"async.zsh"
+zplug "geometry-zsh/geometry"
+zplug "mafredri/zsh-async", from:"github", use:"async.zsh"
+zplug load --verbose
 
 # zsh-plug geometry configuration 
 GEOMETRY_PROMPT_PLUGINS=(virtualenv docker_machine exec_time git)
