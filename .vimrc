@@ -12,11 +12,14 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" COC
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Dash Documentation
 Plug 'rizzatti/dash.vim'
 
 " JSON Fix 
-Plug 'rhysd/vim-fixjson', {'on': 'json'}
+Plug 'rhysd/vim-fixjson'
 
 " NERDTreeToggle 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -392,3 +395,15 @@ let g:vim_jsx_pretty_colorful_config = 1
 
 " 'gilsondev/searchtasks'
 let g:searchtasks_list=["todo", "TODO", "FIXME", "@todo", "@fixme"]
+
+" COC 
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
