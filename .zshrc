@@ -50,6 +50,14 @@ source $ZPLUG_HOME/init.zsh
 #
 zplug "geometry-zsh/geometry"
 zplug "mafredri/zsh-async", from:"github", use:"async.zsh"
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
 zplug load --verbose
 
 # zsh-plug geometry configuration 
