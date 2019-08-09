@@ -5,6 +5,15 @@
     </a>
 </p>
 
-- [x] oh-my-zsh.
-- [x] Vim as `Editor`.
+- [x] `oh-my-zsh` aka zsh.
+- [x] `zplug` for install plugin `zsh`.
+- [x] Vim.
 - [x] Tmux.
+
+# Todo
+- [ ] Support auto install.
+- [ ] Self manage dependencies of `dotfiles`.
+
+Regards,
+
+@ri7nz
