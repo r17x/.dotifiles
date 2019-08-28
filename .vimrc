@@ -18,15 +18,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Dash Documentation
 Plug 'rizzatti/dash.vim'
 
-" JSON Fix 
-Plug 'rhysd/vim-fixjson'
-
 " NERDTreeToggle 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'dsimidzija/vim-nerdtree-ignore'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ctrlpvim/ctrlp.vim'
-
 
 " Utility
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -77,7 +73,8 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'trkw/yarn.vim'
 
 " Lint
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 
 call plug#end()
@@ -378,11 +375,45 @@ set relativenumber
 " eslint npm install -g eslint or dev-dependencies on your package.json 
 " sudo apt-get install pylint 
 " pip install pylint flake8 
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
+
+
+" yarn global add stylelint stylelint-{processor-styled-components,config-styled-components,config-recommended}
+"
+let g:ale_linters = {
+\   'javascript': ['stylelint','eslint'],
+\}
+
+let g:ale_linters_aliases = {
+\   'javascript': ['css', 'javascript'],
+\}
+
 let g:ale_fixers = {
-            \   'javascript': ['eslint'],
-            \   'python': ['autopep8','black','isort']
-            \}
+\   'javascript': ['eslint'],
+\}
+
+"" bind CONTROL+SEMICOLON
+nmap <C-;> <Plug>(ale_fix)
+imap <C-;> <Plug>(ale_fix)
+
+" [ONSAVE]
 let g:ale_fix_on_save = 1 
+let g:ale_lint_on_enter = 0 
+let g:ale_lint_on_text_changed = 1
+let g:ale_lint_delay = 3000
+let g:ale_linters_explicit = 1
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '😈' 
+
+" Highlight ALE Remove
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+
+" Need Airline in ALE
+let g:airline#extensions#ale#enabled = 1
 
 " 'ryanoasis/vim-devicons' 
 let g:webdevicons_enable = 1
