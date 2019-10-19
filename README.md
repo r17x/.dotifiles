@@ -1,7 +1,15 @@
 # Personal Setup 
 <p align="center">
+    <h2> MacOS </h2>
     <a href="#">
-        <img src="https://github.com/ri7nz/.dotifiles/blob/master/sample.png"/>
+        <img src="https://github.com/ri7nz/.dotifiles/blob/master/sample-mac.png"/>
+    </a>
+</p>
+
+<p align="center">
+    <h2> Linux </h2>
+    <a href="#">
+        <img src="https://github.com/ri7nz/.dotifiles/blob/master/sample-linux.jpg"/>
     </a>
 </p>
 
