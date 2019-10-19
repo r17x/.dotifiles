@@ -3,7 +3,8 @@ alias gf="git flow"
 alias gl="git log --graph --oneline --all"
 alias gll="git log --oneline --decorate --all --graph --stat"
 alias gld="git log --oneline --all --pretty=format:\"%h%x09%an%x09%ad%x09%s\""
-alias ls='ls --color=auto'
+alias gls="gl --show-signature"
+alias ls="ls --color=auto"
 
 if [[ $machine == 'linux'  ]]; then
     alias pbcopy='xclip -selection clipboard'
