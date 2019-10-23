@@ -15,6 +15,21 @@ call plug#begin('~/.vim/plugged')
 " COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" ReasonML
+Plug 'jordwalke/vim-reasonml'
+Plug 'reasonml-editor/vim-reason-plus'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+Plug 'Shougo/deoplete.nvim'
+
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+let g:python3_host_prog = "/usr/bin/python3.7" 
+
+
 " Dash Documentation
 Plug 'rizzatti/dash.vim'
 
@@ -31,6 +46,7 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-dispatch'
+Plug 'scrooloose/syntastic'
 
 " Communicate with tmux
 Plug 'benmills/vimux' 
@@ -38,6 +54,8 @@ Plug 'tyewang/vimux-jest-test'
 
 " Tracking
 Plug 'wakatime/vim-wakatime'
+
+
 
 
 " Markdown / Writting
@@ -99,6 +117,12 @@ set expandtab
 " Always display the status line
 set laststatus=2
 
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['/usr/local/bin/reason-language-server'],
+    \ }
+
+" enable autocomplete
+let g:deoplete#enable_at_startup = 1
 " Enable Elite mode, No ARRRROWWS!!!!
 let g:elite_mode=1
 
@@ -351,7 +375,7 @@ let g:NERDTreeIndicatorMapCustom = {
 let g:NERDTreeShowIgnoredStatus = 1
 
 let g:NERDTreeIgnore = [
-            \'\.d$[[node_modules]]',
+            \'\.d$[[node_modules|_esy|esy]]',
             \'\.pyc$',
             \'\.exe$',
             \'\.png$',
@@ -438,3 +462,21 @@ inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+
+"" ReasonML Configuration 
+" Airline: Enable the airline extensions for esy project status and reason
+" syntastic plugin.
+let g:airline_extensions = ['esy', 'reason']
+let g:reasonml_project_airline=1
+let g:reasonml_syntastic_airline=1
+let g:reasonml_clean_project_airline=1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
+let g:neomake_reason_enabled_makers = ['merlin']
+
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
+nnoremap <silent> gf :call LanguageClient#textDocument_formatting()<cr>
+nnoremap <silent> <cr> :call LanguageClient#textDocument_hover()<cr>
+nmap <F8> <Plug>(ale_fix)
+
