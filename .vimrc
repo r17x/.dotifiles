@@ -97,3 +97,4 @@ source ~/.vimrc.theme
 source ~/.vimrc.fzf
 source ~/.vimrc.ale
 source ~/.vimrc.mapping
+source ~/.vimrc.coc
