@@ -17,6 +17,5 @@ let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:neomake_reason_enabled_makers = ['merlin']
 
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
-nnoremap <silent> gf :call LanguageClient#textDocument_formatting()<cr>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<>
 nnoremap <silent> <cr> :call LanguageClient#textDocument_hover()<cr>

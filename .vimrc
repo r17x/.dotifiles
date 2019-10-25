@@ -81,14 +81,13 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tobyS/vmustache'
 Plug 'janko/vim-test'
 
+" Lint
+Plug 'dense-analysis/ale'
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'trkw/yarn.vim'
-
-" Lint
-Plug 'dense-analysis/ale'
 
 call plug#end()
 
@@ -98,3 +97,4 @@ source ~/.vimrc.fzf
 source ~/.vimrc.ale
 source ~/.vimrc.mapping
 source ~/.vimrc.coc
+source ~/.vimrc.javascript 

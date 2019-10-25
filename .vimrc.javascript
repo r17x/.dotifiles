@@ -1,3 +1,4 @@
+
 let g:javascript_plugin_jsdoc = 1
 
 " 'MaxMEllon/vim-jsx-pretty' 
