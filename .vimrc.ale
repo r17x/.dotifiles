@@ -12,8 +12,10 @@ augroup END
 
 " yarn global add stylelint stylelint-{processor-styled-components,config-styled-components,config-recommended}
 "
+let g:ale_reason_ls_executable = '/usr/local/bin/reason-language-server'
 let g:ale_linters = {
 \   'javascript': ['stylelint','eslint'],
+\   'reason': ['reason-language-server'],
 \}
 
 let g:ale_linters_aliases = {
@@ -22,6 +24,7 @@ let g:ale_linters_aliases = {
 
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
+\   'reason': ['refmt'],
 \}
 
 "" bind CONTROL+SEMICOLON

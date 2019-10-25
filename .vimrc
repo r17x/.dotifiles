@@ -40,11 +40,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Utility
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'gilsondev/searchtasks.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'majutsushi/tagbar'
-Plug 'Shougo/neocomplete.vim'
+" Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/syntastic'
 
@@ -83,7 +83,9 @@ Plug 'janko/vim-test'
 
 " Lint
 Plug 'dense-analysis/ale'
+
 " Javascript
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'MaxMEllon/vim-jsx-pretty'
@@ -98,3 +100,4 @@ source ~/.vimrc.ale
 source ~/.vimrc.mapping
 source ~/.vimrc.coc
 source ~/.vimrc.javascript 
+source ~/.vimrc.reasonml 
