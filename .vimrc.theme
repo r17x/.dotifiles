@@ -1,0 +1,34 @@
+" require 
+"
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+"
+"
+" Theme and Styling 
+" 
+syntax on
+"set t_Co=256
+
+" if (has("termguicolors"))
+"   set termguicolors
+" endif
+
+" Vim-Airline Configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1 
+let g:airline_theme='hybrid'
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1 
+
+colorscheme jellybeans
+set background=light
+set relativenumber
+
+" Syntastic Configuration
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" 'ryanoasis/vim-devicons' 
+let g:webdevicons_enable = 1
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0 

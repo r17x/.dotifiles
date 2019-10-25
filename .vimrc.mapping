@@ -1,0 +1,85 @@
+"""""""""""""""""""""""""""""""""""""
+" Mappings configurationn
+" imap => insert mode 
+" nmap => normal mode 
+"""""""""""""""""""""""""""""""""""""
+
+"" CTRL + n 
+map <C-n> :NERDTreeToggle<CR> 
+"" CTRL + m 
+map <C-m> :TagbarToggle<CR>
+
+
+imap ;; <Esc>
+imap ii <Esc>
+nmap ;; :w<CR>
+nmap ;: :wq<CR>
+nmap :W :w<CR>
+nmap :Q :q<CR>
+nmap :Q! :q!<CR>
+nmap :WQ :wq<CR>
+
+"" Mac User Map HJKL
+imap ˙ <Left>
+imap ∆ <Down>
+imap ˚ <Up>
+imap ¬ <Right>
+
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Omnicomplete Better Nav
+inoremap <expr> <leader><c-j> ("\<C-n>")
+inoremap <expr> <leader><c-k> ("\<C-p>")
+
+" Neocomplete Plugin mappins
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
+
+" Shortcuts
+nnoremap <Leader>o :Files<CR> 
+nnoremap <Leader>O :CtrlP<CR>
+nnoremap <Leader>w :w<CR>
+
+
+" Vim-Test Mappings
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
+" Vim-PDV Mappings
+autocmd FileType php inoremap <C-p> <ESC>:call pdv#DocumentWithSnip()<CR>i
+autocmd FileType php nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
+autocmd FileType php setlocal omnifunc=phpcd#CompletePHP
+
+" Disable arrow movement, resize splits instead.
+if get(g:, 'elite_mode')
+    nnoremap <Up>    :resize +2<CR>
+    nnoremap <Down>  :resize -2<CR>
+    nnoremap <Left>  :vertical resize +2<CR>
+    nnoremap <Right> :vertical resize -2<CR>
+endif
+
+map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
+
+" Vim-Alchemist Mappings
+autocmd FileType elixir nnoremap <buffer> <leader>h :call alchemist#exdoc()<CR>
+autocmd FileType elixir nnoremap <buffer> <leader>d :call alchemist#exdef()<CR>
+
+
