@@ -71,6 +71,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'nanotech/jellybeans.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'itchyny/lightline.vim'
+Plug 'chrisbra/Colorizer'
 
 " Icon
 Plug 'ryanoasis/vim-devicons'
@@ -100,4 +101,4 @@ source ~/.vimrc.ale
 source ~/.vimrc.mapping
 source ~/.vimrc.coc
 source ~/.vimrc.javascript 
-source ~/.vimrc.reasonml 
+" source ~/.vimrc.reasonml 

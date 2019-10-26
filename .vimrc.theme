@@ -25,10 +25,15 @@ set background=light
 set relativenumber
 
 " Syntastic Configuration
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 " 'ryanoasis/vim-devicons' 
 let g:webdevicons_enable = 1
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0 
+
+" colorizer
+let g:colorizer_auto_filetype='css,html,js,jsx,json,yml,md,mdx,tsx,ts'
+let g:colorizer_colornames = 1
+au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx,  :ColorHighlight!
