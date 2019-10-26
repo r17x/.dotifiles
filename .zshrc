@@ -61,15 +61,19 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 # from oh-my-zsh
 zplug "lib/completion",             from:oh-my-zsh
+zplug "lib/directories",            from:oh-my-zsh
 zplug "lib/git",                    from:oh-my-zsh
 zplug "lib/history",                from:oh-my-zsh
 zplug "lib/key-bindings",           from:oh-my-zsh
 zplug "plugins/emoji",              from:oh-my-zsh
 zplug "plugins/git",                from:oh-my-zsh
+zplug "plugins/github",             from:oh-my-zsh
 zplug "plugins/yarn",               from:oh-my-zsh
 zplug "plugins/fzf",                from:oh-my-zsh
+zplug "plugins/yarn",               from:oh-my-zsh
 zplug "plugins/vim-interaction",    from:oh-my-zsh
 zplug "plugins/colorize",           from:oh-my-zsh
+zplug "plugins/systemd",            from:oh-my-zsh
 
 # for add new zplug "lib/", from:oh-my-zsh
 
