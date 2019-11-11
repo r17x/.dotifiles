@@ -114,12 +114,12 @@ font:
     style: Regular
 
   # Bold font face
-  bold:
+  #bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: monospace
+    # family: monospace
 
     # The `style` can be specified to pick a specific face.
     #style: Bold
@@ -295,7 +295,7 @@ background_opacity: .95
 # All available `mods` and `action` values are documented in the key binding
 # section.
 mouse_bindings:
-  - { mouse: Middle, action: PasteSelection }
+  - { mouse: Middle, action: Paste }
 
 mouse:
   # Click settings
@@ -508,14 +508,14 @@ debug:
 #   - AppKeypad
 key_bindings:
   # (Windows/Linux only)
-  # - { key: V,        mods: Con<<<trol,       action: Paste            }
+  # - { key: V,        mods: Control,       action: Paste            }
   # - { key: C,        mods: Control,       action: Copy             }
-  # - { key: Insert,   mods: Shift,         action: PasteSelection   }
+  - { key: Insert,   mods: Shift,         action: Paste }
   #- { key: Key0,     mods: Control,       action: ResetFontSize    }
-  #- { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
   #- { key: Add,      mods: Control,       action: IncreaseFontSize }
   #- { key: Subtract, mods: Control,       action: DecreaseFontSize }
-  #- { key: Minus,    mods: Control,       action: DecreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
 
   # (macOS only)
