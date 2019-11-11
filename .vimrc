@@ -37,7 +37,6 @@ Plug 'rizzatti/dash.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'dsimidzija/vim-nerdtree-ignore'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ctrlpvim/ctrlp.vim'
 
 " Utility
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -101,4 +100,5 @@ source ~/.vimrc.ale
 source ~/.vimrc.mapping
 source ~/.vimrc.coc
 source ~/.vimrc.javascript 
+source ~/.vimrc.nerdtree 
 " source ~/.vimrc.reasonml 

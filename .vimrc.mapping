@@ -4,6 +4,8 @@
 " nmap => normal mode 
 """""""""""""""""""""""""""""""""""""
 
+"" CTRL + P 
+map <C-p> :Files<CR>
 "" CTRL + n 
 map <C-n> :NERDTreeToggle<CR> 
 "" CTRL + m 
