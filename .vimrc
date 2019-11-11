@@ -46,6 +46,7 @@ Plug 'majutsushi/tagbar'
 " Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/syntastic'
+Plug 'yardnsm/vim-import-cost', {'do': 'yarn install'}
 
 " Communicate with tmux
 Plug 'benmills/vimux' 
