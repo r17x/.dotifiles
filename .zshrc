@@ -90,7 +90,7 @@ zplug load
 
 # [React-Native] Android Configuration
 export ANDROID_HOME=$HOME/Android
-export ANDROID_SDK=$ANDROID_HOME/sdk
+export ANDROID_SDK=$ANDROID_HOME
 export ANDROID_SDK_ROOT=$ANDROID_SDK
 export ANDROID_NDK=$ANDROID_SDK/ndk-bundle
 
@@ -138,3 +138,17 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Z Jump
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
+# emcc/c\c++/wasm environment 
+printf "Enable emscripten environment (wASM) ? [y/n]: "  
+read enableMe
+[[ $enableMe = "y" ]] && [[ -r ~/emsdk ]] && source ~/emsdk/emsdk_env.sh
+
+# Rust environment 
+printf "Enable Rust environment ? [y/n]: " 
+read enableMe
+[[ $enableMe = "y" ]] && [[ -r ~/.cargo/env ]] && source ~/.cargo/env
+
+# default: nodejs environment
+echo "nodejs version: `node -v`"
+echo "fnm version: `fnm -v`"
