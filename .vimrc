@@ -102,4 +102,5 @@ source ~/.vimrc.mapping
 source ~/.vimrc.coc
 source ~/.vimrc.javascript 
 source ~/.vimrc.nerdtree 
-" source ~/.vimrc.reasonml 
+source ~/.vimrc.reasonml 
+source ~/.vimrc.lsp

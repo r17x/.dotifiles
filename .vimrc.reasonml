@@ -1,11 +1,6 @@
 """""""""""""""""""""""""""""""""""""
 " ReasonML
 """""""""""""""""""""""""""""""""""""
-let g:LanguageClient_serverCommands = {
-    \ 'reason': ['/usr/local/bin/reason-language-server'],
-    \ }
-
-"
 " Airline: Enable the airline extensions for esy project status and reason
 " syntastic plugin.
 let g:airline_extensions = ['esy', 'reason']
