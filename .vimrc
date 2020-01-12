@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " ReasonML
-Plug 'jordwalke/vim-reasonml'
+" Plug 'jordwalke/vim-reasonml'
 Plug 'reasonml-editor/vim-reason-plus'
 
 Plug 'autozimu/LanguageClient-neovim', {
@@ -92,6 +92,8 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'trkw/yarn.vim'
 
+Plug 'vifm/vifm.vim'
+
 call plug#end()
 
 source ~/.vimrc.common
@@ -103,4 +105,4 @@ source ~/.vimrc.coc
 source ~/.vimrc.javascript 
 source ~/.vimrc.nerdtree 
 source ~/.vimrc.reasonml 
-source ~/.vimrc.lsp
+source ~/.vimrc.fun
