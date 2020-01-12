@@ -95,14 +95,24 @@ Plug 'trkw/yarn.vim'
 Plug 'vifm/vifm.vim'
 
 call plug#end()
-
+" essential & common configuration
 source ~/.vimrc.common
-source ~/.vimrc.theme
-source ~/.vimrc.fzf
-source ~/.vimrc.ale
-source ~/.vimrc.mapping
-source ~/.vimrc.coc
-source ~/.vimrc.javascript 
-source ~/.vimrc.nerdtree 
+" LanguageServer configuration  
+source ~/.vimrc.lsp
 source ~/.vimrc.reasonml 
+" theme & fancy configuration
+source ~/.vimrc.theme
+" fuzzy finder
+source ~/.vimrc.fzf
+" asynchronous lint engine
+source ~/.vimrc.ale
+" keyboard mapping configuration
+source ~/.vimrc.mapping
+" COC/Intelisense
+source ~/.vimrc.coc
+" Javascript
+source ~/.vimrc.javascript 
+" SideBar for file finder
+source ~/.vimrc.nerdtree 
+" Vim function
 source ~/.vimrc.fun

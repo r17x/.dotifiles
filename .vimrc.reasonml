@@ -1,6 +1,9 @@
-"""""""""""""""""""""""""""""""""""""
-" ReasonML
-"""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ReasonML                                                "
+" WARNING: make sure have been add .vimrc.lsp in ~/.vimrc "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"
 " Airline: Enable the airline extensions for esy project status and reason
 " syntastic plugin.
 let g:airline_extensions = ['esy', 'reason']
@@ -10,4 +13,10 @@ let g:reasonml_clean_project_airline=1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
+
 " let g:neomake_reason_enabled_makers = ['merlin']
+nnoremap <silent> ggd :call LanguageClient#textDocument_definition()<>
+
+" NORMAL MODE: ;f 
+nnoremap <silent> ;f :call LanguageClient#textDocument_formatting()<cr>
+" nnoremap <silent> <cr> :call LanguageClient#textDocument_hover()<cr>
