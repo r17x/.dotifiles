@@ -63,7 +63,8 @@ Plug 'jtratner/vim-flavored-markdown'
 " Git Support
 Plug 'kablamo/vim-git-log'
 Plug 'gregsexton/gitv'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive' 
+Plug 'airblade/vim-gitgutter'
 
 " Theme / Interface
 Plug 'vim-airline/vim-airline'
@@ -98,7 +99,7 @@ call plug#end()
 " essential & common configuration
 source ~/.vimrc.common
 " LanguageServer configuration  
-source ~/.vimrc.lsp
+" source ~/.vimrc.lsp
 source ~/.vimrc.reasonml 
 " theme & fancy configuration
 source ~/.vimrc.theme

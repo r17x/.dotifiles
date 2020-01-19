@@ -1,7 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ReasonML                                                "
-" WARNING: make sure have been add .vimrc.lsp in ~/.vimrc "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'reason': ['/usr/local/bin/reason-language-server'],
+    \ }
 
 "
 " Airline: Enable the airline extensions for esy project status and reason

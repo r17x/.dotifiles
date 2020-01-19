@@ -20,6 +20,20 @@ nmap :Q :q<CR>
 nmap :Q! :q!<CR>
 nmap :WQ :wq<CR>
 
+"" Git file list
+nmap gll :Glog<CR>
+nmap gf :GFiles<CR> 
+" Git Status
+nmap gs :Gstatus<CR>
+" Git Push 
+nmap gps :Gpush<CR>
+" Git Pull
+nmap gpl :Gpull<CR>
+" Git Add
+nmap gw :Gwrite<CR> 
+nmap gcm :Gcommit<CR>
+nmap gmt :Git mergetool<CR>
+
 "" Mac User Map HJKL
 imap ˙ <Left>
 imap ∆ <Down>
