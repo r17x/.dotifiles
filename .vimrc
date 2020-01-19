@@ -65,6 +65,7 @@ Plug 'kablamo/vim-git-log'
 Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive' 
 Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-conflicted'
 
 " Theme / Interface
 Plug 'vim-airline/vim-airline'
