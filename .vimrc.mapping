@@ -4,6 +4,13 @@
 " nmap => normal mode 
 """""""""""""""""""""""""""""""""""""
 
+nnoremap <S-j> :m .+1<CR>==
+nnoremap <S-k> :m .-2<CR>==
+inoremap <S-j> <Esc>:m .+1<CR>==gi
+inoremap <S-k> <Esc>:m .-2<CR>==gi
+vnoremap <S-j> :m '>+1<CR>gv=gv
+vnoremap <S-k> :m '<-2<CR>gv=gv
+
 "" CTRL + P 
 map <C-p> :Files<CR>
 "" CTRL + n 
@@ -34,7 +41,7 @@ nmap gw :Gwrite<CR>
 nmap gcm :Gcommit<CR>
 nmap gmt :Git mergetool<CR>
 " vim-conflicted
-nmap gcm :GitNextConflict
+nmap gcm :GitNextConflict<CR>
 " Use `gl` and `gu` rather than the default conflicted diffget mappings
 let g:diffget_local_map = 'gl'
 let g:diffget_upstream_map = 'gu'
