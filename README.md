@@ -18,6 +18,13 @@
 - [x] Vim.
 - [x] Tmux.
 
+# How to use
+```bash
+# assume you have cloned this repository
+$ ln -sf dotifiles/.vimrc* ~/ 
+$ ln -sf dotifiles/.config/* ~/.config
+```
+
 # Todo
 - [ ] Support auto install.
 - [ ] Self manage dependencies of `dotfiles`.
