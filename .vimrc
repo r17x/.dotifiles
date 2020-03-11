@@ -98,9 +98,11 @@ Plug 'vifm/vifm.vim'
 
 """ NEED TO TRY
 " junegunn/vim-easy-align
-" itchyny/lightline.vim
-" preservim/nerdcommenter
-" easymotion/vim-easymotion
+" Plug 'itchyny/lightline.vim'
+" Plug 'preservim/nerdcommenter'
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
 """ 
 call plug#end()
 " essential & common configuration
@@ -124,3 +126,5 @@ source ~/.vimrc.javascript
 source ~/.vimrc.nerdtree 
 " Vim function
 source ~/.vimrc.fun
+" EasyMotion
+source ~/.vimrc.easymotion
