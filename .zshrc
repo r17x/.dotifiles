@@ -140,15 +140,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 # emcc/c\c++/wasm environment 
-printf "Enable emscripten environment (wASM) ? [y/n]: "  
-read enableMe
-[[ $enableMe = "y" ]] && [[ -r ~/emsdk ]] && source ~/emsdk/emsdk_env.sh
+[[ -r ~/emsdk ]] && source ~/emsdk/emsdk_env.sh
 
 # Rust environment 
-printf "Enable Rust environment ? [y/n]: " 
-read enableMe
-[[ $enableMe = "y" ]] && [[ -r ~/.cargo/env ]] && source ~/.cargo/env
-
-# default: nodejs environment
-echo "nodejs version: `node -v`"
-echo "fnm version: `fnm -v`"
+[[ -r ~/.cargo/env ]] && source ~/.cargo/env
+export GITHUB_USER="ri7nz"
+. <(gpg --no-tty -qd ~/acs.gpg)

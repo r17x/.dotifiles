@@ -96,6 +96,12 @@ Plug 'trkw/yarn.vim'
 
 Plug 'vifm/vifm.vim'
 
+""" NEED TO TRY
+" junegunn/vim-easy-align
+" itchyny/lightline.vim
+" preservim/nerdcommenter
+" easymotion/vim-easymotion
+""" 
 call plug#end()
 " essential & common configuration
 source ~/.vimrc.common
