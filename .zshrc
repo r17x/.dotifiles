@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export LC_CTYPE="en_US.UTF-8"
 # this function only check for not directory exist.
 export LANG=en_US.UTF-8
@@ -106,6 +106,7 @@ export PATH=${PATH}:${ANDROID_SDK}/tools/bin
 export PATH=$ANDROID_SDK/tools/bin:$PATH
 export PATH=${PATH}:${ANDROID_SDK}/platform-tools
 export PATH=$HOME/.yarn/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 export HERMES_WS_DIR=$HOME/.hermes
 export PATH=$HERMES_WS_DIR/build/bin:$PATH

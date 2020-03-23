@@ -1,0 +1,3 @@
+[submodule "fzf-scripts"]
+	path = fzf-scripts
+	url = git@github.com:DanielFGray/fzf-scripts.git
