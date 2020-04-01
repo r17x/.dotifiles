@@ -147,3 +147,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [[ -r ~/.cargo/env ]] && source ~/.cargo/env
 export GITHUB_USER="ri7nz"
 . <(gpg --no-tty -qd ~/acs.gpg)
+
+# ocaml environment 
+# eval $(opam env)
+
+# opam configuration
+test -r ~/.opam/opam-init/init.zsh && . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

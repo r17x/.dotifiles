@@ -27,6 +27,8 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'Shougo/deoplete.nvim'
 
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'alok/notational-fzf-vim'
+let g:nv_search_paths = ['~/wiki', '~/writing', 'docs.md' , './notes.md']
 let g:python3_host_prog = "/usr/bin/python3.7" 
 
 
