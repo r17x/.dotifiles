@@ -25,3 +25,6 @@ let g:elite_mode=1
 " Enable highlighting of the current line
 set cursorline
 
+"
+autocmd FileType yml setlocal ts=2 sts=2 sw=2
+autocmd FileType reason setlocal ts=2 sts=2 sw=2

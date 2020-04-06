@@ -30,20 +30,31 @@ if [  ! -d "$ZPLUG_HOME" ] && [ -f "$ZSH/oh-my-zsh.sh"  ];then
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
 
-# zsh
 # zsh-plug geometry configuration 
-export GEOMETRY_PROMPT_PLUGINS=(exec_time git)
-export GEOMETRY_COLOR_GIT_DIRTY=9
-export GEOMETRY_COLOR_GIT_BRANCH=6
-export GEOMETRY_COLOR_EXIT_VALUE=9
-export GEOMETRY_SYMBOL_EXIT_VALUE="⛛"
+# export GEOMETRY_PROMPT=(geometry_git geometry_status geometry_npm_package_version geometry_exec_time)
+# export GEOMETRY_RPROMPT=(geometry_status geometry_npm_package_version geometry_exec_time)
+# export GEOMETRY_COLOR_GIT_DIRTY=9
+# export GEOMETRY_COLOR_GIT_BRANCH=6
+# export GEOMETRY_COLOR_EXIT_VALUE=9
+# export GEOMETRY_STATUS_SYMBOL="λ"             # default prompt symbol
+# export GEOMETRY_STATUS_SYMBOL_ERROR="△"       
+# export GEOMETRY_SYMBOL_EXIT_VALUE="⛛"
+# export PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
+# export PROMPT_GEOMETRY_COMMAND_MAX_EXEC_TIME=true
+# export PROMPT_GEOMETRY_EXEC_TIME=true
+
+
 export PROMPT_GEOMETRY_GIT_CONFLICTS=true
 export PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
-export PROMPT_GEOMETRY_PROMPT_ASYNC=true
-export PROMPT_GEOMETRY_COMMAND_MAX_EXEC_TIME=true
 export PROMPT_GEOMETRY_EXEC_TIME=true
+export PROMPT_GEOMETRY_PROMPT_ASYNC=true
+export GEOMETRY_TIME_NEUTRAL='yellow'
+export GEOMETRY_PLUGIN_HYDRATE_SYMBOL=
+export GEOMETRY_PLUGIN_SEPARATOR=' '
 
-
+# export GEOMETRY_PROMPT_PLUGINS_PRIMARY=(path hostname)
+# export GEOMETRY_PROMPT_PLUGINS_SECONDARY=(exec_time todo git rustup hydrate)
+export GEOMETRY_PLUGIN_HYDRATE_BINDKEY='^L'
 # zsh-plug init 
 source $ZPLUG_HOME/init.zsh
 # source $ZSH/oh-my-zsh.sh
@@ -55,7 +66,6 @@ if ! zplug check --verbose; then
         echo; zplug install
     fi
 fi
-
 # do self-manage
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
@@ -87,6 +97,7 @@ zplug 'hlissner/zsh-autopair'
 
 zplug check || zplug install 
 zplug load 
+
 
 # [React-Native] Android Configuration
 export ANDROID_HOME=$HOME/Android
