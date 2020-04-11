@@ -18,6 +18,10 @@
 - [x] Vim.
 - [x] Tmux.
 
+# Requirements
+- vim/nvim
+- fzf
+
 # How to use
 ```bash
 # assume you have cloned this repository
