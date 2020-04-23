@@ -54,8 +54,9 @@ Plug 'yardnsm/vim-import-cost', {'do': 'yarn install'}
 Plug 'benmills/vimux' 
 Plug 'tyewang/vimux-jest-test'
 
-" Tracking
+" Integration Services
 Plug 'wakatime/vim-wakatime'
+Plug 'ananagame/vimsence'
 
 " Markdown / Writting
 Plug 'reedes/vim-pencil'
