@@ -6,6 +6,10 @@ alias gld="git log --oneline --all --pretty=format:\"%h%x09%an%x09%ad%x09%s\""
 alias gls="gl --show-signature"
 alias ls="ls --color=auto"
 alias lg="lazygit"
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 alias npms="npmsearch"
 
 if [[ $machine == 'linux'  ]]; then
@@ -13,4 +17,4 @@ if [[ $machine == 'linux'  ]]; then
     alias pbpaste='xclip -selection clipboard -o'
 fi
 
-alias ls="exa"
+alias ls="lsd"
