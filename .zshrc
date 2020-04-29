@@ -8,7 +8,6 @@ export GPG_TTY=$(tty)
 export ZSH=~/.oh-my-zsh
 export ZPLUG_HOME=~/.zplug
 
-# Compilation flags
 unameOut="$(uname -s)"
 case "${unameOut}" in
     Linux*)     machine=linux;;
@@ -99,28 +98,9 @@ zplug check || zplug install
 zplug load 
 
 
-# [React-Native] Android Configuration
-export ANDROID_HOME=$HOME/Android
-export ANDROID_SDK=$ANDROID_HOME
-export ANDROID_SDK_ROOT=$ANDROID_SDK
-export ANDROID_NDK=$ANDROID_SDK/ndk-bundle
-
-if [ ! -d "$ANDROID_HOME" ];then
-    mkdir $ANDROID_HOME
-    echo "Download ANDROID SDK & NDK"
-    curl -o /tmp/sdk-tools.zip https://dl.google.com/android/repository/sdk-tools-$machine-4333796.zip && unzip /tmp/sdk-tools.zip -d $ANDROID_SDK
-    curl -o /tmp/ndk-bundle.zip https://dl.google.com/android/repository/android-ndk-r20-$machine-x86_64.zip && unzip /tmp/ndk-bundle.zip -d $ANDROID_NDK
-fi
-
-export PATH=${PATH}:${ANDROID_SDK}/tools
-export PATH=${PATH}:${ANDROID_SDK}/tools/bin
-export PATH=$ANDROID_SDK/tools/bin:$PATH
-export PATH=${PATH}:${ANDROID_SDK}/platform-tools
 export PATH=$HOME/.yarn/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
-
-export HERMES_WS_DIR=$HOME/.hermes
-export PATH=$HERMES_WS_DIR/build/bin:$PATH
+source ~/.profile.android
 source ~/.aliases
 # direnv [Python Environment] 
 # eval "$(direnv hook zsh)"
