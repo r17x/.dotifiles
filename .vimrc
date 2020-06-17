@@ -5,9 +5,9 @@
 set encoding=utf8
 
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -20,13 +20,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'reasonml-editor/vim-reason-plus'
 
 Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+            \ 'branch': 'next',
+            \ 'do': 'bash install.sh',
+            \ }
 
 Plug 'Shougo/deoplete.nvim'
 
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'alok/notational-fzf-vim'
 let g:nv_search_paths = ['~/wiki', '~/writing', 'docs.md' , './notes.md']
 let g:python3_host_prog = "/usr/bin/python3.7" 
@@ -61,8 +61,12 @@ Plug 'ananagame/vimsence'
 
 " Markdown / Writting
 Plug 'reedes/vim-pencil'
-Plug 'tpope/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
+
+" Focus
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 " Git Support
 Plug 'kablamo/vim-git-log'
@@ -97,8 +101,14 @@ Plug 'pangloss/vim-javascript'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'trkw/yarn.vim'
+Plug 'prettier/vim-prettier', {
+            \ 'do': 'yarn install',
+            \ 'for': [
+            \ 'javascript', 'typescript', 'css', 
+            \ 'less', 'scss', 'json', 'graphql', 
+            \ 'markdown', 'vue', 'yaml', 
+            \ 'html'] }
 
-Plug 'vifm/vifm.vim'
 
 """ NEED TO TRY
 " junegunn/vim-easy-align
@@ -132,3 +142,32 @@ source ~/.vimrc.nerdtree
 source ~/.vimrc.fun
 " EasyMotion
 source ~/.vimrc.easymotion
+let g:vimspector_enable_mappings = 'HUMAN'
+
+
+" if exists("b:current_syntax")
+"     finish
+" endif
+" 
+" 
+" syntax match todoCheckbox "\[\ \]" conceal cchar=
+" syntax match todoCheckbox "\[x\]" conceal cchar=
+" 
+" let b:current_syntax = "todo"
+" 
+" hi def link todoCheckbox Todo
+" hi Conceal guibg=NONE
+" 
+" setlocal cole=1
+
+" Custom conceal
+syntax match todoCheckbox "\[\ \]" conceal cchar=
+syntax match todoCheckbox "\[x\]" conceal cchar=
+
+hi def link todoCheckbox Todo
+
+highlight Conceal ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+
+setlocal cole=1
+call matchadd('Conceal', '\[\ \]', 0, 11, {'conceal': ''})
+call matchadd('Conceal', '\[x\]', 0, 12, {'conceal': ''})
