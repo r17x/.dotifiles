@@ -16,13 +16,10 @@ syntax on
 " Vim-Airline Configuration
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1 
-let g:airline_theme='hybrid'
+let g:airline_theme='one'
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 
 
-colorscheme jellybeans
-set background=light
-set relativenumber
 
 " Syntastic Configuration
 " set statusline+=%#warningmsg#
@@ -37,7 +34,16 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 let g:colorizer_auto_filetype='css,html,js,jsx,json,yml,md,mdx,tsx,ts,less,scss'
 let g:colorizer_colornames = 1
 au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx,  :ColorHighlight!
-
 let g:lightline = {
     \ 'colorscheme': 'one'
     \}
+
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+set background=dark
+let g:one_allow_italics = 1
+colorscheme one
+set relativenumber

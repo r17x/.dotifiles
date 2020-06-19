@@ -78,9 +78,13 @@ Plug 'christoomey/vim-conflicted'
 " Theme / Interface
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'nanotech/jellybeans.vim'
-Plug 'w0ng/vim-hybrid'
+" Plug 'nanotech/jellybeans.vim'
+" Plug 'w0ng/vim-hybrid'
 Plug 'itchyny/lightline.vim'
+" original: Plug 'rakr/vim-one'
+" this is Forked
+Plug 'ri7nz/vim-one'
+" color hex highlight
 Plug 'chrisbra/Colorizer'
 
 " Icon
@@ -161,13 +165,13 @@ let g:vimspector_enable_mappings = 'HUMAN'
 " setlocal cole=1
 
 " Custom conceal
-syntax match todoCheckbox "\[\ \]" conceal cchar=
-syntax match todoCheckbox "\[x\]" conceal cchar=
-
-hi def link todoCheckbox Todo
-
-highlight Conceal ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
-
-setlocal cole=1
-call matchadd('Conceal', '\[\ \]', 0, 11, {'conceal': ''})
-call matchadd('Conceal', '\[x\]', 0, 12, {'conceal': ''})
+" syntax match todoCheckbox "\[\ \]" conceal cchar=
+" syntax match todoCheckbox "\[x\]" conceal cchar=
+" 
+" hi def link todoCheckbox Todo
+" 
+" highlight Conceal ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+" 
+" setlocal cole=1
+" call matchadd('Conceal', '\[\ \]', 0, 11, {'conceal': ''})
+" call matchadd('Conceal', '\[x\]', 0, 12, {'conceal': ''})
