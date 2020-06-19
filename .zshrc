@@ -35,8 +35,6 @@ fi
 # export GEOMETRY_COLOR_GIT_DIRTY=9
 # export GEOMETRY_COLOR_GIT_BRANCH=6
 # export GEOMETRY_COLOR_EXIT_VALUE=9
-# export GEOMETRY_STATUS_SYMBOL="λ"             # default prompt symbol
-# export GEOMETRY_STATUS_SYMBOL_ERROR="△"       
 # export GEOMETRY_SYMBOL_EXIT_VALUE="⛛"
 # export PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
 # export PROMPT_GEOMETRY_COMMAND_MAX_EXEC_TIME=true
@@ -55,6 +53,8 @@ export GEOMETRY_PLUGIN_SEPARATOR=' '
 # export GEOMETRY_PROMPT_PLUGINS_SECONDARY=(exec_time todo git rustup hydrate)
 export GEOMETRY_PLUGIN_HYDRATE_BINDKEY='^L'
 # zsh-plug init 
+export GEOMETRY_SYMBOL_ROOT="λ"             # default prompt symbol
+export GEOMETRY_SYMBOL_PROMPT="𝝀"             # default prompt symbol
 source $ZPLUG_HOME/init.zsh
 # source $ZSH/oh-my-zsh.sh
 
