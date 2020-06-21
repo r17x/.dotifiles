@@ -132,28 +132,28 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 """ 
 call plug#end()
 " essential & common configuration
-source ~/.vimrc.common
+source ~/.vim/.vimrc.common
 " LanguageServer configuration  
-" source ~/.vimrc.lsp
-source ~/.vimrc.reasonml 
+" source ~/.vim/.vimrc.lsp
+source ~/.vim/.vimrc.reasonml 
 " theme & fancy configuration
-source ~/.vimrc.theme
+source ~/.vim/.vimrc.theme
 " fuzzy finder
-source ~/.vimrc.fzf
+source ~/.vim/.vimrc.fzf
 " asynchronous lint engine
-source ~/.vimrc.ale
+source ~/.vim/.vimrc.ale
 " keyboard mapping configuration
-source ~/.vimrc.mapping
+source ~/.vim/.vimrc.mapping
 " COC/Intelisense
-source ~/.vimrc.coc
+source ~/.vim/.vimrc.coc
 " Javascript
-source ~/.vimrc.javascript 
+source ~/.vim/.vimrc.javascript 
 " SideBar for file finder
-source ~/.vimrc.nerdtree 
+source ~/.vim/.vimrc.nerdtree 
 " Vim function
-source ~/.vimrc.fun
+source ~/.vim/.vimrc.fun
 " EasyMotion
-source ~/.vimrc.easymotion
+source ~/.vim/.vimrc.easymotion
 let g:vimspector_enable_mappings = 'HUMAN'
 
 
