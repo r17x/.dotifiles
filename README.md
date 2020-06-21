@@ -2,37 +2,16 @@
 <p align="center">
     <h2> MacOS </h2>
     <a href="#">
-        <img src="https://github.com/ri7nz/.dotifiles/blob/master/sample-mac.png"/>
+        <img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/sample-mac.png"/>
     </a>
 </p>
 
 <p align="center">
     <h2> Linux </h2>
     <a href="#">
-        <img src="https://github.com/ri7nz/.dotifiles/blob/master/sample-linux.jpg"/>
+        <img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/sample-linux.png"/>
     </a>
 </p>
 
-- [x] `oh-my-zsh` aka zsh.
-- [x] `zplug` for install plugin `zsh`.
-- [x] Vim.
-- [x] Tmux.
-
-# Requirements
-- vim/nvim
-- fzf
-
 # How to use
-```bash
-# assume you have cloned this repository
-$ ln -sf dotifiles/.vimrc* ~/ 
-$ ln -sf dotifiles/.config/* ~/.config
-```
-
-# Todo
-- [ ] Support auto install.
-- [ ] Self manage dependencies of `dotfiles`.
-
-Regards,
-
-@ri7nz
+I manage my `dotfiles` with [**yadm**](https://yadm.io/).
