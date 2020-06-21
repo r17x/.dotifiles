@@ -1,1 +1,0 @@
-/home/r177/me/dotifiles/.vimrc.lsp
