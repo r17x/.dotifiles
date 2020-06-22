@@ -68,6 +68,7 @@ Plug 'reedes/vim-pencil'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 " Focus
 Plug 'junegunn/goyo.vim'
@@ -195,3 +196,9 @@ else
     let &t_SI .= "\e[=1c"
     let &t_EI .= "\e[=2c"
 endif
+
+" vim markdown
+let vim_markdown_preview_github=1
+let vim_markdown_preview_use_xdg_open=1
+let vim_markdown_preview_toggle=1
+let vim_markdown_preview_hotkey='<C-i>'
