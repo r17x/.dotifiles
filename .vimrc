@@ -185,3 +185,13 @@ let g:vimspector_enable_mappings = 'HUMAN'
 " call matchadd('Conceal', '\[x\]', 0, 12, {'conceal': ''})
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+" cursor underline
+" https://stackoverflow.com/questions/57099868/putty-tmux-vim-change-cursor-shape
+if exists('$TMUX')
+    let &t_SI .= "\ePtmux;\e\e[=1c\e\\"
+    let &t_EI .= "\ePtmux;\e\e[=2c\e\\"
+else
+    let &t_SI .= "\e[=1c"
+    let &t_EI .= "\e[=2c"
+endif
