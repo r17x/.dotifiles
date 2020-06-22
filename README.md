@@ -38,3 +38,4 @@ My personal setup `dotfiles`
 * **[rofi](https://github.com/davatorium/rofi)** [Linux]
 * **[Polybar](https://github.com/polybar/polybar)** [Linux]
 * **[Greenclip](https://github.com/erebe/greenclip)** [Linux]
+* **[Teamocil](https://github.com/remi/teamocil)** [Linux|MacOS]

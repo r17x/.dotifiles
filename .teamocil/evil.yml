@@ -1,0 +1,7 @@
+windows:
+  - name: evil
+    root: ~/evl
+    layout: even-horizontal
+    panes:
+      - vim
+      - ls -l

@@ -175,3 +175,7 @@ zstyle ':fzf-tab:complete:cd:*' extra-opts --preview=$extract'exa -1 --color=alw
 
 export DENO_INSTALL=~/.deno
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+# Ruby
+# Archwiki: https://wiki.archlinux.org/index.php/Ruby#Installing_gems_per-user_or_system-wide
+PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
