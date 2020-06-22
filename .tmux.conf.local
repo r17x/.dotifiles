@@ -303,3 +303,6 @@ bind-key -T copy-mode-vi Enter send-keys -X copy-selection-and-cancelbind-key -T
 # the setting below enables true color support of tmux
 set -g default-terminal "xterm-256color"
 set -ga terminal-overrides ",*256col*:Tc"
+
+# center window list
+set-option -g status-justify centre

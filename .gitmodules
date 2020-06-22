@@ -4,3 +4,12 @@
 [submodule ".tmux"]
 	path = .tmux
 	url = git@github.com:gpakosz/.tmux.git
+[submodule ".config/i3-layout-manager"]
+	path = .config/i3-layout-manager
+	url = git@github.com:klaxalk/i3-layout-manager
+[submodule ".config/polybar-themes"]
+	path = .config/polybar-themes
+	url = git@github.com:adi1090x/polybar-themes
+[submodule ".config/polypomo"]
+	path = .config/polypomo
+	url = git@github.com:unode/polypomo.git
