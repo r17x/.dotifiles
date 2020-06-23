@@ -221,7 +221,6 @@ exec --no-startup-id pamac-tray
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id $HOME/.config/i3-layout-manager/layout_manager.sh
 
 # Theme colors
 client.focused #707880 #1d1f21 #707880 #8c9440 #8c9440
