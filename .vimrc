@@ -43,6 +43,9 @@ Plug 'dsimidzija/vim-nerdtree-ignore'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Utility
+if !has('nvim')
+    Plug 'rhysd/vim-healthcheck'
+endif
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'gilsondev/searchtasks.vim'
 Plug 'wesQ3/vim-windowswap'
