@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/current.png" alt="System Information" />
+  <img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/demo.gif" alt="System Information" />
 </p>
 
 
@@ -39,6 +39,10 @@ My personal setup `dotfiles`
 ## Linux
 <details>
   <summary>Click Me</summary>
+<p align="center">
+  <img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/current.png" alt="System Information" />
+</p>
+
 <p align="center">
     <h3> Linux </h2>
     <a href="#">
