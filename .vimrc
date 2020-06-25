@@ -30,10 +30,16 @@ Plug 'autozimu/LanguageClient-neovim', {
 " Plug 'Shougo/deoplete.nvim'
 
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim', {'dir': '~/.fzf', 'do': './install --all'}
-Plug 'Alok/notational-fzf-vim'
-let g:nv_search_paths = ['~/wiki', '~/writing', 'docs.md' , './notes.md']
-let g:python3_host_prog = "/usr/bin/python3.7" 
-
+Plug 'alok/notational-fzf-vim'
+let g:nv_search_paths = [
+    \'~/wiki', 
+    \'~/writing', 
+    \'docs.md' , 
+    \'./notes.md',
+    \'~/me/rin.rocks/src/pages/blog'
+    \]
+" `sudo pacman -S pypy3`
+let g:python3_host_prog = "/usr/bin/pypy3" 
 " Dash Documentation
 " Plug 'rizzatti/dash.vim'
 
