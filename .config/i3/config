@@ -299,3 +299,7 @@ bindsym $mod+slash exec "sp play"; exec notify-send "Spotify |>"
 # Clipboard manager
 # shortcut to selection widget (primary)
 bindsym $mod+c exec rofi --no-startup-id -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}';
+
+# emoji
+# map: alt+shift+.
+bindsym $mod+Shift+greater exec rofi --no-startup-id -show emoji -modi emoji
