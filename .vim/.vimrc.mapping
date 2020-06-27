@@ -57,23 +57,6 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-"" Omnicomplete Better Nav
-"inoremap <expr> <leader><c-j> ("\<C-n>")
-"inoremap <expr> <leader><c-k> ("\<C-p>")
-"
-"" Neocomplete Plugin mappins
-"inoremap <expr><C-g>     neocomplete#undo_completion()
-"inoremap <expr><C-l>     neocomplete#complete_common_string()
-"
-"" Recommended key-mappings.
-"" <CR>: close popup and save indent.
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"
-"" <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-
-
 " Shortcuts
 nnoremap <Leader>o :Files<CR> 
 nnoremap <Leader>O :CtrlP<CR>
@@ -96,11 +79,13 @@ endif
 
 map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
 
-"" Require Import-Cost
-" Put this in your .vimrc
-" augroup import_cost_auto_run
-"    autocmd!
-"    autocmd InsertLeave *.js,*.jsx,*.ts,*.tsx ImportCost
-"    autocmd BufEnter *.js,*.jsx,*.ts,*.tsx ImportCost
-"    autocmd CursorHold *.js,*.jsx,*.ts,*.tsx ImportCost
-" augroup END
+" <TAB> deoplete
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" autozimu/LanguageClient-neovim
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> gf :call LanguageClient#textDocument_formatting()<CR>
+nnoremap <silent> <CR> :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+

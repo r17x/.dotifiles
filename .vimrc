@@ -13,33 +13,37 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " COC
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " ReasonML
-" Plug 'jordwalke/vim-reasonml'
+" Plug 'jordwalke/vim-reasonml' " this is use for reason native development 
 " Plug 'reasonml-editor/vim-reason-plus'
+Plug 'reasonml-editor/vim-reason-plus'
 
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+" for neovim
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" for vim 8 with python
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+  " `sudo pacman -S pypy3`
+  " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
+  let g:python3_host_prog = "/usr/bin/pypy3"
+endif
 " All Pack syntax highlight
 Plug 'sheerun/vim-polyglot' 
 
-Plug 'autozimu/LanguageClient-neovim', {
-            \ 'branch': 'next',
-            \ 'do': 'bash install.sh',
-            \ }
-
-" Plug 'Shougo/deoplete.nvim'
-
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim', {'dir': '~/.fzf', 'do': './install --all'}
+
 Plug 'alok/notational-fzf-vim'
-let g:nv_search_paths = [
-    \'~/wiki', 
-    \'~/writing', 
-    \'docs.md' , 
-    \'./notes.md',
-    \'~/me/rin.rocks/src/pages/blog'
-    \]
-" `sudo pacman -S pypy3`
-let g:python3_host_prog = "/usr/bin/pypy3" 
+ 
 " Dash Documentation
 " Plug 'rizzatti/dash.vim'
 
@@ -141,6 +145,25 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 """ 
 call plug#end()
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'reason': ['/usr/bin/reason-language-server'],
+    \ }
+
+" enable autocomplete
+let g:deoplete#enable_at_startup = 1
+"
+" plug: fzf-notational
+let g:nv_search_paths = [
+    \'~/wiki', 
+    \'~/writing', 
+    \'docs.md' , 
+    \'./notes.md',
+    \'~/me/rin.rocks/src/pages/blog'
+    \]
+
+
 " essential & common configuration
 source ~/.vim/.vimrc.common
 " LanguageServer configuration  
@@ -164,7 +187,7 @@ source ~/.vim/.vimrc.nerdtree
 source ~/.vim/.vimrc.fun
 " EasyMotion
 source ~/.vim/.vimrc.easymotion
-let g:vimspector_enable_mappings = 'HUMAN'
+" let g:vimspector_enable_mappings = 'HUMAN'
 
 
 " if exists("b:current_syntax")
@@ -211,3 +234,6 @@ let vim_markdown_preview_github=1
 let vim_markdown_preview_use_xdg_open=1
 let vim_markdown_preview_toggle=1
 let vim_markdown_preview_hotkey='<C-i>'
+
+" auto insert datetime
+map <F3> :r !date --rfc-3339=s<cr>

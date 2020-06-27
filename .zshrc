@@ -79,7 +79,6 @@ zplug "plugins/git",                from:oh-my-zsh
 zplug "plugins/github",             from:oh-my-zsh
 zplug "plugins/yarn",               from:oh-my-zsh
 zplug "plugins/fzf",                from:oh-my-zsh
-zplug "plugins/yarn",               from:oh-my-zsh
 zplug "plugins/vim-interaction",    from:oh-my-zsh
 zplug "plugins/colorize",           from:oh-my-zsh
 zplug "plugins/systemd",            from:oh-my-zsh
@@ -100,8 +99,9 @@ zplug check || zplug install
 zplug load 
 
 
-export PATH=$HOME/.yarn/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+# yarn  
+export PATH="$(yarn global bin):$PATH"
 source ~/.profile.android
 source ~/.aliases
 # direnv [Python Environment] 
@@ -141,11 +141,11 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export GITHUB_USER="ri7nz"
 . <(gpg --no-tty -qd ~/acs.gpg)
 
-# ocaml environment 
-# eval $(opam env)
-
 # opam configuration
 test -r ~/.opam/opam-init/init.zsh && . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# ocaml environment 
+eval $(opam env)
 
 # disable sort when completing options of any command
 zstyle ':completion:complete:*:options' sort false

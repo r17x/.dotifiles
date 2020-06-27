@@ -1,12 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ReasonML                                                "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'reason': ['/usr/local/bin/reason-language-server'],
-    \ }
 
-"
 " Airline: Enable the airline extensions for esy project status and reason
 " syntastic plugin.
 " let g:airline_extensions = ['esy', 'reason']
@@ -14,9 +9,3 @@ let g:reasonml_project_airline=1
 let g:reasonml_syntastic_airline=1
 let g:reasonml_clean_project_airline=1
 
-" let g:neomake_reason_enabled_makers = ['merlin']
-nnoremap <silent> ggd :call LanguageClient#textDocument_definition()<>
-
-" NORMAL MODE: ;f 
-nnoremap <silent> ;f :call LanguageClient#textDocument_formatting()<cr>
-" nnoremap <silent> <cr> :call LanguageClient#textDocument_hover()<cr>
