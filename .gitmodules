@@ -13,3 +13,6 @@
 [submodule ".config/polypomo"]
 	path = .config/polypomo
 	url = git@github.com:unode/polypomo.git
+[submodule ".config/tmux-plugins"]
+	path = .config/tmux-plugins
+	url = git@github.com:tmux-plugins/tpm.git

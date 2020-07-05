@@ -13,32 +13,32 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " COC
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" THIS IS AN ALTERNATIVE THAN COC
 " ReasonML
 " Plug 'jordwalke/vim-reasonml' " this is use for reason native development 
+" Plug 'kamykn/spelunker.vim'
 " Plug 'reasonml-editor/vim-reason-plus'
-Plug 'reasonml-editor/vim-reason-plus'
-
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
+"
 " for neovim
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" for vim 8 with python
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-  " `sudo pacman -S pypy3`
-  " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
-  let g:python3_host_prog = "/usr/bin/pypy3"
-endif
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" " for vim 8 with python
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+"   " `sudo pacman -S pypy3`
+"   " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
+" endif
 " All Pack syntax highlight
 Plug 'sheerun/vim-polyglot' 
+let g:python3_host_prog = "/usr/bin/pypy3"
 
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim', {'dir': '~/.fzf', 'do': './install --all'}
 
@@ -104,8 +104,8 @@ Plug 'yuttie/comfortable-motion.vim'
 Plug 'itchyny/lightline.vim'
 " original: Plug 'rakr/vim-one'
 " this is Forked
-Plug 'sainnhe/edge'
 Plug 'ri7nz/vim-one'
+Plug 'sainnhe/edge'
 " color hex highlight
 Plug 'chrisbra/Colorizer'
 
@@ -119,7 +119,7 @@ Plug 'ryanoasis/vim-devicons'
 " Plug 'janko/vim-test'
 
 " Lint
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 
 " Javascript
 " Plug 'HerringtonDarkholme/yats.vim'
@@ -145,14 +145,14 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 """ 
 call plug#end()
-
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'reason': ['/usr/bin/reason-language-server'],
-    \ }
-
-" enable autocomplete
-let g:deoplete#enable_at_startup = 1
+" THIS IS AN ALTERNATIVE THAN COC
+" let g:LanguageClient_serverCommands = {
+"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+"     \ 'reason': ['/usr/bin/reason-language-server'],
+"     \ }
+" 
+" " enable autocomplete
+" let g:deoplete#enable_at_startup = 1
 "
 " plug: fzf-notational
 let g:nv_search_paths = [
@@ -160,33 +160,33 @@ let g:nv_search_paths = [
     \'~/writing', 
     \'docs.md' , 
     \'./notes.md',
-    \'~/me/rin.rocks/src/pages/blog'
+    \'~/me/rin.rocks/content'
     \]
 
 
 " essential & common configuration
-source ~/.vim/.vimrc.common
+source ~/.vim/vimrc.common
 " LanguageServer configuration  
 " source ~/.vim/.vimrc.lsp
-source ~/.vim/.vimrc.reasonml 
+source ~/.vim/vimrc.reasonml 
 " theme & fancy configuration
-source ~/.vim/.vimrc.theme
+source ~/.vim/vimrc.theme
 " fuzzy finder
-source ~/.vim/.vimrc.fzf
+source ~/.vim/vimrc.fzf
 " asynchronous lint engine
-source ~/.vim/.vimrc.ale
+source ~/.vim/vimrc.ale
 " keyboard mapping configuration
-source ~/.vim/.vimrc.mapping
+source ~/.vim/vimrc.mapping
 " COC/Intelisense
-source ~/.vim/.vimrc.coc
+source ~/.vim/vimrc.coc
 " Javascript
-source ~/.vim/.vimrc.javascript 
+source ~/.vim/vimrc.javascript 
 " SideBar for file finder
-source ~/.vim/.vimrc.nerdtree 
+source ~/.vim/vimrc.nerdtree 
 " Vim function
-source ~/.vim/.vimrc.fun
+source ~/.vim/vimrc.fun
 " EasyMotion
-source ~/.vim/.vimrc.easymotion
+source ~/.vim/vimrc.easymotion
 " let g:vimspector_enable_mappings = 'HUMAN'
 
 
@@ -234,6 +234,5 @@ let vim_markdown_preview_github=1
 let vim_markdown_preview_use_xdg_open=1
 let vim_markdown_preview_toggle=1
 let vim_markdown_preview_hotkey='<C-i>'
-
-" auto insert datetime
-map <F3> :r !date --rfc-3339=s<cr>
+" splunker
+let g:enable_spelunker_vim = 0

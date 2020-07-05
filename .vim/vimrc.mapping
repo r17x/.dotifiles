@@ -3,7 +3,7 @@
 " imap => insert mode 
 " nmap => normal mode 
 """""""""""""""""""""""""""""""""""""
-
+let mapleader = ','
 nnoremap <S-j> :m .+1<CR>==
 nnoremap <S-k> :m .-2<CR>==
 inoremap <A-S-j> <Esc>:m .+1<CR>==gi
@@ -11,8 +11,10 @@ inoremap <A-S-k> <Esc>:m .-2<CR>==gi
 vnoremap <S-j> :m '>+1<CR>gv=gv
 vnoremap <S-k> :m '<-2<CR>gv=gv
 
-"" CTRL + P 
+"" CTRL + P  (required: fzf for preview)
 map <C-p> :Files<CR>
+"" TODO need to fix met key for apply ctrl+shift+<key> map <C-A-p> :Rg<CR>
+map <P-/> :Rg<CR>
 "" CTRL + n 
 map <C-n> :NERDTreeToggle<CR> 
 "" CTRL + m 
@@ -41,7 +43,7 @@ nmap gw :Gwrite<CR>
 nmap gcm :Gcommit<CR>
 nmap gmt :Git mergetool<CR>
 " vim-conflicted
-nmap gcm :GitNextConflict<CR>
+nmap gnc :GitNextConflict<CR>
 " Use `gl` and `gu` rather than the default conflicted diffget mappings
 let g:diffget_local_map = 'gl'
 let g:diffget_upstream_map = 'gu'
@@ -59,15 +61,8 @@ noremap <C-l> <C-w>l
 
 " Shortcuts
 nnoremap <Leader>o :Files<CR> 
-nnoremap <Leader>O :CtrlP<CR>
+nnoremap <Leader>O :Rg<CR>
 nnoremap <Leader>w :w<CR>
-
-" Vim-Test Mappings
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
 
 " Disable arrow movement, resize splits instead.
 if get(g:, 'elite_mode')
@@ -80,12 +75,14 @@ endif
 map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
 
 " <TAB> deoplete
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " autozimu/LanguageClient-neovim
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gf :call LanguageClient#textDocument_formatting()<CR>
-nnoremap <silent> <CR> :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> gf :call LanguageClient#textDocument_formatting()<CR>
+" nnoremap <silent> <CR> :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
+" auto insert datetime
+map <F3> :r !date --rfc-3339=s<cr>
