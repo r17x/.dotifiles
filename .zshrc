@@ -82,6 +82,7 @@ zplug "plugins/fzf",                from:oh-my-zsh
 zplug "plugins/vim-interaction",    from:oh-my-zsh
 zplug "plugins/colorize",           from:oh-my-zsh
 zplug "plugins/systemd",            from:oh-my-zsh
+zplug "plugins/fasd",               from:oh-my-zsh
 
 # for add new zplug "lib/", from:oh-my-zsh
 
@@ -179,3 +180,6 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 # Ruby
 # Archwiki: https://wiki.archlinux.org/index.php/Ruby#Installing_gems_per-user_or_system-wide
 PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+
+# fasd init 
+# eval "$(fasd --init auto)"

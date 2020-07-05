@@ -303,3 +303,6 @@ bindsym $mod+c exec rofi --no-startup-id -modi "clipboard:greenclip print" -show
 # emoji
 # map: alt+shift+.
 bindsym $mod+Shift+greater exec rofi --no-startup-id -show emoji -modi emoji
+
+# password-store rofi
+bindsym $mod+Shift+p exec rofi-pass --no-startup-id

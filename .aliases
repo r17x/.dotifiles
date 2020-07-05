@@ -11,8 +11,11 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 alias npms="npmsearch"
+alias c='fasd_cd -d'
 
 if [[ $machine == 'linux'  ]]; then
     alias pbcopy='xclip -selection clipboard'
     alias pbpaste='xclip -selection clipboard -o'
 fi
+
+
