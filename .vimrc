@@ -93,6 +93,8 @@ Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive' 
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-conflicted'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/vim-gist'
 
 " Theme / Interface
 Plug 'vim-airline/vim-airline'
@@ -127,15 +129,6 @@ Plug 'ryanoasis/vim-devicons'
 " Plug 'maksimr/vim-jsbeautify'
 " Plug 'MaxMEllon/vim-jsx-pretty'
 " Plug 'trkw/yarn.vim'
-Plug 'prettier/vim-prettier', {
-            \ 'do': 'yarn install',
-            \ 'for': [
-            \ 'javascript', 'typescript', 'css', 
-            \ 'less', 'scss', 'json', 'graphql', 
-            \ 'markdown', 'vue', 'yaml', 
-            \ 'html'] }
-
-
 """ NEED TO TRY
 " junegunn/vim-easy-align
 " Plug 'itchyny/lightline.vim'

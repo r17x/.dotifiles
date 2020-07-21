@@ -2,6 +2,7 @@
   "dependencies": {
     "coc-eslint": ">=1.2.7",
     "coc-json": ">=1.2.6",
+    "coc-prettier": ">=1.1.16",
     "coc-reason": ">=0.1.1",
     "coc-tslint": ">=1.0.17",
     "coc-tsserver": ">=1.5.2",

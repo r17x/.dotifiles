@@ -1,3 +1,8 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["reason","javascript","json"]
+  "coc.preferences.formatOnSaveFiletypes": [
+    "reason",
+    "javascript",
+    "json",
+    "typescript"
+  ]
 }

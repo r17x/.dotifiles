@@ -4,6 +4,7 @@
 " nmap => normal mode 
 """""""""""""""""""""""""""""""""""""
 let mapleader = ','
+
 nnoremap <S-j> :m .+1<CR>==
 nnoremap <S-k> :m .-2<CR>==
 inoremap <A-S-j> <Esc>:m .+1<CR>==gi
@@ -13,8 +14,6 @@ vnoremap <S-k> :m '<-2<CR>gv=gv
 
 "" CTRL + P  (required: fzf for preview)
 map <C-p> :Files<CR>
-"" TODO need to fix met key for apply ctrl+shift+<key> map <C-A-p> :Rg<CR>
-map <P-/> :Rg<CR>
 "" CTRL + n 
 map <C-n> :NERDTreeToggle<CR> 
 "" CTRL + m 
@@ -30,20 +29,21 @@ nmap :Q! :q!<CR>
 nmap :WQ :wq<CR>
 
 "" Git file list
-nmap gll :Glog<CR>
-nmap gf :GFiles<CR> 
+noremap <leader>gll :Glog<CR>
+noremap <leader>gll :Glog<CR>
+noremap <leader>gf :GFiles<CR> 
 " Git Status
-nmap gs :Gstatus<CR>
+noremap <leader>gs :Gstatus<CR>
 " Git Push 
-nmap gps :Gpush<CR>
+noremap <leader>gps :Gpush<CR>
 " Git Pull
-nmap gpl :Gpull<CR>
+noremap <leader>gpl :Gpull<CR>
 " Git Add
-nmap gw :Gwrite<CR> 
-nmap gcm :Gcommit<CR>
-nmap gmt :Git mergetool<CR>
+noremap <leader>gw :Gwrite<CR> 
+noremap <leader>gcm :Gcommit<CR>
+noremap <leader>gmt :Git mergetool<CR>
 " vim-conflicted
-nmap gnc :GitNextConflict<CR>
+noremap <leader>gnc :GitNextConflict<CR>
 " Use `gl` and `gu` rather than the default conflicted diffget mappings
 let g:diffget_local_map = 'gl'
 let g:diffget_upstream_map = 'gu'
@@ -86,3 +86,6 @@ map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
 
 " auto insert datetime
 map <F3> :r !date --rfc-3339=s<cr>
+
+" :Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
