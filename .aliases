@@ -17,6 +17,8 @@ alias -g G="| grep"
 alias -g L="| less"
 alias ys="yarn start"
 alias yb="yarn build"
+alias v="vim"
+alias tm="tmux"
 if [[ $machine == 'linux'  ]]; then
     alias pbcopy='xclip -selection clipboard'
     alias pbpaste='xclip -selection clipboard -o'
