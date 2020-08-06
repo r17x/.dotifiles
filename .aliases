@@ -5,6 +5,7 @@ alias gll="git log --oneline --decorate --all --graph --stat"
 alias gld="git log --oneline --all --pretty=format:\"%h%x09%an%x09%ad%x09%s\""
 alias gls="gl --show-signature"
 alias gfa="git fetch --all"
+alias grc="git rebase --continue"
 alias ls="ls --color=auto"
 alias lg="lazygit"
 alias l='ls -l'

@@ -12,6 +12,9 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" Diagram / Draw
+Plug 'gyim/vim-boxdraw'
+Plug 'vim-scripts/DrawIt'
 " COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -136,6 +139,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
+" HTTP 
+Plug 'nicwest/vim-http'
 """ 
 call plug#end()
 " THIS IS AN ALTERNATIVE THAN COC
