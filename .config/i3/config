@@ -91,20 +91,20 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
 # workspaces
-set $ws1 1
-set $ws2 2
+set $ws1 1:w0
+set $ws2 2:wtfeb
 set $ws3 3
-set $ws4 4
+set $ws4 4:teleGRAM
 set $ws5 5
 set $ws6 6
-set $ws7 7
-set $ws8 8
+set $ws7 7:discr00t
+set $ws8 8:Musick
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
+bindsym $mod+4 workspace $ws4 
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
@@ -158,6 +158,9 @@ for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+for_window [class="Spotify"] move to workspace $ws8
+for_window [class="discord"] move to workspace $ws7
+for_window [class="TelegramDesktop"] move to workspace $ws4
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -299,6 +302,8 @@ bindsym $mod+slash exec "sp play"; exec notify-send "Spotify |>"
 # Clipboard manager
 # shortcut to selection widget (primary)
 bindsym $mod+c exec rofi --no-startup-id -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}';
+# show window 
+bindsym $mod+Shift+w exec rofi --no-startup-id -show window
 
 # emoji
 # map: alt+shift+.
@@ -306,3 +311,6 @@ bindsym $mod+Shift+greater exec rofi --no-startup-id -show emoji -modi emoji
 
 # password-store rofi
 bindsym $mod+Shift+p exec rofi-pass --no-startup-id
+
+# run autostart
+exec ~/.autostart --no-startup-id
