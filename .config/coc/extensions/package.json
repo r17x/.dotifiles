@@ -2,6 +2,7 @@
   "dependencies": {
     "coc-eslint": ">=1.2.7",
     "coc-json": ">=1.2.6",
+    "coc-markmap": ">=0.2.5",
     "coc-prettier": ">=1.1.16",
     "coc-react-refactor": ">=0.3.0",
     "coc-reason": ">=0.1.1",

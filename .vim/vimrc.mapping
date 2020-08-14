@@ -89,3 +89,9 @@ map <F3> :r !date --rfc-3339=s<cr>
 
 " :Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" Markmap
+" Create markmap from the whole file
+nmap <Leader>m <Plug>(coc-markmap-create)
+" Create markmap from the selected lines
+vmap <Leader>m <Plug>(coc-markmap-create-v)
