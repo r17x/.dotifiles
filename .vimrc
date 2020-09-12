@@ -12,6 +12,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" GPG
+Plug 'jamessan/vim-gnupg'
 " Diagram / Draw
 Plug 'gyim/vim-boxdraw'
 Plug 'vim-scripts/DrawIt'
@@ -77,6 +79,9 @@ Plug 'benmills/vimux'
 Plug 'wakatime/vim-wakatime'
 " Discord Integration 
 Plug 'ananagame/vimsence'
+
+" Mustache lang
+Plug 'juvenn/mustache.vim'
 
 " Markdown / Writting
 Plug 'reedes/vim-pencil'
