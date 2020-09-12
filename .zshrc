@@ -160,7 +160,8 @@ zt for \
     OMZL::git.zsh \
     OMZL::history.zsh \
     OMZP::fasd \
-    Aloxaf/fzf-tab
+    Aloxaf/fzf-tab \ 
+    knu/zsh-manydots-magic
 
 ######################
 # Trigger-load block #
@@ -227,3 +228,5 @@ typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     time
     newline
 )
+
+setopt autocd autopushd 

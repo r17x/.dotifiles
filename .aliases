@@ -1,3 +1,8 @@
+if [[ $machine == 'linux'  ]]; then
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+fi
+
 alias cat=bat
 alias gf="git flow"
 alias gl="git log --graph --oneline --all"
@@ -16,11 +21,12 @@ alias npms="npmsearch"
 alias c='fasd_cd -d'
 alias -g G="| grep"
 alias -g L="| less"
+# alias -g C="| pbcopy"
+alias -g P="pbpaste"
 alias ys="yarn start"
 alias yb="yarn build"
 alias v="vim"
 alias tm="tmux"
-if [[ $machine == 'linux'  ]]; then
-    alias pbcopy='xclip -selection clipboard'
-    alias pbpaste='xclip -selection clipboard -o'
-fi
+alias ...="../../../"
+alias ....="../../../../"
+alias .....="../../../../../"
