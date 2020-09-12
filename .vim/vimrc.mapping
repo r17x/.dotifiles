@@ -29,18 +29,29 @@ nmap :Q! :q!<CR>
 nmap :WQ :wq<CR>
 
 "" Git file list
-noremap <leader>gll :Glog<CR>
-noremap <leader>gll :Glog<CR>
+
+noremap <leader>G :Git<CR>
+" Browser file in vim
 noremap <leader>gf :GFiles<CR> 
+" Git split 
+noremap <leader>gsp :Gsplit<CR> 
+" Git diff
+noremap <leader>gds :Gdiffsplit<CR> 
+" Git log
+noremap <leader>gll :Glog<CR>
+" Git fetch all
+noremap <leader>gfa :Git fetch --all<CR>
 " Git Status
 noremap <leader>gs :Gstatus<CR>
 " Git Push 
 noremap <leader>gps :Gpush<CR>
 " Git Pull
 noremap <leader>gpl :Gpull<CR>
-" Git Add
+" Git Add/Write
 noremap <leader>gw :Gwrite<CR> 
+" Git commit
 noremap <leader>gcm :Gcommit<CR>
+" Git mergetool
 noremap <leader>gmt :Git mergetool<CR>
 " vim-conflicted
 noremap <leader>gnc :GitNextConflict<CR>
