@@ -41,11 +41,17 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "   " `sudo pacman -S pypy3`
 "   " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
 " endif
-" All Pack syntax highlight
+" >>--> All Pack syntax highlight
 Plug 'sheerun/vim-polyglot' 
-let g:python3_host_prog = "/usr/bin/pypy3"
-
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim', {'dir': '~/.fzf', 'do': './install --all'}
+if filereadable("/usr/bin/pypy3")
+    let g:python3_host_prog = "/usr/bin/pypy3"
+endif
+" >>--> FZF Plugin
+if filereadable("/usr/local/opt/fzf")
+  Plug '/usr/local/opt/fzf' 
+else
+  Plug 'junegunn/fzf.vim', {'dir': '~/.fzf', 'do': './install --all'}
+endif
 
 Plug 'alok/notational-fzf-vim'
  
@@ -85,7 +91,6 @@ Plug 'juvenn/mustache.vim'
 
 " Markdown / Writting
 Plug 'reedes/vim-pencil'
-" Try `:help fold-expr` and `:help fold-commands` for details. 
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
@@ -146,6 +151,8 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 " HTTP 
 Plug 'nicwest/vim-http'
+" Productivity ? 
+Plug 'itchyny/calendar.vim'
 """ 
 call plug#end()
 " THIS IS AN ALTERNATIVE THAN COC
@@ -166,33 +173,13 @@ let g:nv_search_paths = [
     \'~/me/rin.rocks/content'
     \]
 
+" source vim configuration from ~/.vim/vimrc.d/
+for f in split(glob('~/.vim/vimrc.d/*.vim'), '\n')
+    exe 'source' f
+endfor
 
-" essential & common configuration
-source ~/.vim/vimrc.common
-" LanguageServer configuration  
-" source ~/.vim/.vimrc.lsp
-source ~/.vim/vimrc.reasonml 
-" theme & fancy configuration
-source ~/.vim/vimrc.theme
-" fuzzy finder
-source ~/.vim/vimrc.fzf
-" asynchronous lint engine
-source ~/.vim/vimrc.ale
-" keyboard mapping configuration
-source ~/.vim/vimrc.mapping
-" COC/Intelisense
-source ~/.vim/vimrc.coc
-" Javascript
-source ~/.vim/vimrc.javascript 
-" SideBar for file finder
-source ~/.vim/vimrc.nerdtree 
-" Vim function
-source ~/.vim/vimrc.fun
-" EasyMotion
-source ~/.vim/vimrc.easymotion
-" let g:vimspector_enable_mappings = 'HUMAN'
-
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ==> EXPERIMENTAL TODO CHECKBOX
 " if exists("b:current_syntax")
 "     finish
 " endif
@@ -219,23 +206,10 @@ source ~/.vim/vimrc.easymotion
 " setlocal cole=1
 " call matchadd('Conceal', '\[\ \]', 0, 11, {'conceal': ''})
 " call matchadd('Conceal', '\[x\]', 0, 12, {'conceal': ''})
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
 
-" cursor underline
-" https://stackoverflow.com/questions/57099868/putty-tmux-vim-change-cursor-shape
-if exists('$TMUX')
-    let &t_SI .= "\ePtmux;\e\e[=1c\e\\"
-    let &t_EI .= "\ePtmux;\e\e[=2c\e\\"
-else
-    let &t_SI .= "\e[=1c"
-    let &t_EI .= "\e[=2c"
+if filereadable("~/.cache/calendar.vim/credentials.vim")
+    source ~/.cache/calendar.vim/credentials.vim
 endif
-
-" vim markdown
-let vim_markdown_preview_github=1
-let vim_markdown_preview_use_xdg_open=1
-let vim_markdown_preview_toggle=1
-let vim_markdown_preview_hotkey='<C-i>'
-" splunker
-let g:enable_spelunker_vim = 0
