@@ -1,0 +1,9 @@
+#!/bin/env bash
+
+ALL_ARCH_PKG_LOG=$HOME/.all-my-arch-packages.log
+pacman -Qe > $ALL_ARCH_PKG_LOG
+yadm add $ALL_ARCH_PKG_LOG
+yadm commit -m "chore(arch): update all pkg log \n\nNote: task powered by fcron"
+yadm push origin master
+./command_exists notify-send && notify-send \
+  "[PUSHED]: ALL Arch Package installed in this machine"

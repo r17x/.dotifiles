@@ -1,0 +1,5 @@
+#!/bin/env bash
+
+./command_exists notify-send \
+  "[START]... docker clean"
+./clean_docker

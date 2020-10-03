@@ -1,0 +1,5 @@
+#!/bin/env bash
+
+`rm -rf $HOME/{w0,me,evl}/**/node_modules`
+command_exists notify-send && notify-send \
+  "[CLEAN]: remove ALL node_modules in {w0,me,evl}"

@@ -1,0 +1,6 @@
+#!/bin/env bash
+
+sudo systemctl start docker
+echo "y" | docker system prune 
+./command_exists "[Finish] clean docker"
+sudo systemctl stop docker

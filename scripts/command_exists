@@ -1,0 +1,8 @@
+#!/bin/env bash
+
+# ref {command_exists} {https://stackoverflow.com/a/592635}
+__command_exists () {
+    hash "$1" &> /dev/null ;
+}
+
+__command_exists $1
