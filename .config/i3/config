@@ -221,12 +221,13 @@ mode "resize" {
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id nm-applet
 # exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-# run autostart
-exec ~/.autostart --no-startup-id
+exec --no-startup-id pasystray
+exec --no-startup-id pamac-tray-appindicator
+# custom autostart
+exec --no-startup-id $HOME/.autostart
 
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
+# exec_always --no-startup-id ff-theme-util
+# exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Theme colors

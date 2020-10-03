@@ -27,6 +27,15 @@ alias ys="yarn start"
 alias yb="yarn build"
 alias v="vim"
 alias tm="tmux"
-alias ...="../../../"
-alias ....="../../../../"
-alias .....="../../../../../"
+alias ...="../../"
+alias ....="../../../"
+alias .....="../../../../"
+alias rm="rm -i"
+alias emulator=${ANDROID_HOME}/emulator/emulator
+# Resolutions 
+# res: [ 768x1280, 1080x1920 ]
+# -skin {res} 
+alias and29='emulator @and29 -no-boot-anim -netdelay none -no-snapshot -wipe-data -skin 768x1280 &'
+alias pixel_9.0='emulator @pixel_9.0 -no-boot-anim -netdelay none -no-snapshot -wipe-data -skin 1080x1920 &'
+alias ls='ls --color=auto'
+alias benchmark='hyperfine'
