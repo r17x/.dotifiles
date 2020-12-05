@@ -1,8 +1,12 @@
 # [React-Native] Android Configuration
+# REcommended use .autoenv.zsh for load this on demand
 export ANDROID_HOME=$HOME/Android
 export ANDROID_SDK=$ANDROID_HOME
 export ANDROID_SDK_ROOT=$ANDROID_SDK
 export ANDROID_NDK=$ANDROID_SDK/ndk-bundle
+alias emulator=${ANDROID_HOME}/emulator/emulator
+alias and29='emulator @and29 -no-boot-anim -netdelay none -no-snapshot -wipe-data -skin 768x1280 &'
+alias pixel_9.0='emulator @pixel_9.0 -no-boot-anim -netdelay none -skin 1080x1920 -writable-system &'
 
 if [ ! -d "$ANDROID_HOME" ];then
     mkdir $ANDROID_HOME

@@ -1,6 +1,8 @@
 # init tmux-plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'samoshkin/tmux-plugin-sysstat'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
 run -b '~/.config/tmux-plugins/tpm'
 
 # https://github.com/gpakosz/.tmux
