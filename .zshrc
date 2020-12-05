@@ -15,6 +15,7 @@ fi
 export LANG=en_US.UTF-8
 export GPG_TTY=$(tty)
 export ZSH=~/.oh-my-zsh
+export EDITOR=vim
 ### Machine portable detect ###
 unameOut="$(uname -s)"
 case "${unameOut}" in
@@ -44,14 +45,14 @@ export YARN_BIN="`yarn global bin`"
 # Archwiki: https://wiki.archlinux.org/index.php/Ruby#Installing_gems_per-user_or_system-wide
 export RUBY_BIN="`ruby -e 'puts Gem.user_dir'`/bin"
 ### BASE PATH ###
-export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:$HOME/.local/bin
+export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/bin/core_perl/:$HOME/.local/bin
 ### BASE PATH ###
 
 
 ### DEVELOPMENT PATH (environment) ###
 export PATH=$FNM_BIN:$YARN_BIN:$PATH:$RUBY_BIN # fnm (multiple node.js)
 export ctags=/usr/local/bin/ctags
-eval "`fnm env --multi`" # fnm init
+eval "`fnm env `" # fnm init
 
 # TODO make it with .autoenv (base on directory) - ondemand load path
 # emcc/c\c++/wasm environment 
@@ -61,12 +62,13 @@ eval "`fnm env --multi`" # fnm init
 # opam configuration
 # test -r ~/.opam/opam-init/init.zsh && . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 # ocaml environment 
-# eval $(opam env)
+eval $(opam env)
 
 ### DEVELOPMENT PATH (environment) ###
 
 #### LOG ####
-export NVIM_COC_LOG_FILE="$HOME/log/nvim.log"
+export NVIM_COC_LOG_FILE="$HOME/log/nvim.coc.log"
+export NVIM_PYTHON_LOG_FILE="$HOME/log/nvim.python.log"
 export XDG_RUNTIME_DIR="$HOME/log/xdg"
 #### LOG ####
 
@@ -74,3 +76,7 @@ export XDG_RUNTIME_DIR="$HOME/log/xdg"
 source $HOME/.aliases
 source $HOME/.zshrc.local
 #### SOURCE ###
+
+# fnm
+export PATH=/home/r177/.fnm/:$PATH
+eval "`fnm env`"

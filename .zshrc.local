@@ -2,6 +2,8 @@
 # FZF Configuration #
 #####################
 
+bindkey -e
+
 [ -f /usr/share/fzf/key-bindings.zsh ] && \
     source /usr/share/fzf/key-bindings.zsh && \
     source /usr/share/fzf/completion.zsh ]
@@ -165,6 +167,4 @@ typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     time
     newline
 )
-setopt  autocd autopushd \ pushdignoredups
-
-
+setopt  autocd autopushd 
