@@ -7,11 +7,10 @@ new_window pixel 1
 new_float normal
 
 hide_edge_borders none
-# border none
 
 bindsym $mod+u border none
 bindsym $mod+y border pixel 1
-bindsym $mod+i border normal
+bindsym $mod+n border normal
 
 font FontAwesome:style=Regular 11
 
@@ -88,8 +87,8 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # navigate workspaces next / previous
-bindsym $mod+Ctrl+l workspace next
-bindsym $mod+Ctrl+h workspace prev
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
 
 # workspaces
 set $ws1 1
@@ -102,14 +101,14 @@ set $ws7 7
 set $ws8 8
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
+bindsym $mod+1 workspace $ws1 w0
+bindsym $mod+2 workspace $ws2 web
 bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
+bindsym $mod+4 workspace $ws4 Telegram
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
+bindsym $mod+7 workspace $ws7 Discord
+bindsym $mod+8 workspace $ws8 Musick
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -159,11 +158,10 @@ for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-
-# Move Open specific applications 
-for_window [title="Telegram"] move to workspace $ws6
-for_window [class="Spotify"] move to workspace $ws8
+for_window [class="Spotify"] floating enable focus move to workspace $ws8
 for_window [class="discord"] move to workspace $ws7
+for_window [class="TelegramDesktop"] move to workspace $ws4
+for_window [class="TelegramDesktop"] floating enable focus
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -222,17 +220,10 @@ mode "resize" {
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id nm-applet
 # exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pasystray
-# exec --no-startup-id pa-applet
-exec --no-startup-id mictray
-exec --no-startup-id pamac-tray-appindicator
-# custom autostart
-# exec --no-startup-id $HOME/.autostart 
-exec --no-startup-id "greenclip daemon > /dev/null 2>&1) &"
-exec --no-startup-id "systemctl --user restart greenclip" 
+exec --no-startup-id pamac-tray
 
-# exec_always --no-startup-id ff-theme-util
-# exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Theme colors
@@ -321,14 +312,3 @@ bindsym $mod+Shift+greater exec rofi --no-startup-id -show emoji -modi emoji
 
 # password-store rofi
 bindsym $mod+Shift+p exec rofi-pass --no-startup-id
-
-bindsym $mod+z exec --no-startup-id ~/.config/polypomo/polypomo toggle
-bindsym $mod+Shift+z exec --no-startup-id ~/.config/polypomo/polypomo end
-bindsym $mod+x exec --no-startup-id ~/.config/polypomo/polypomo lock
-# TODO
-bindsym $mod+n exec 'notify-send "DUNE_COMMAND_RESUME"'
-bindsym $mod+Shift+n exec 'notify-send "DUNE_COMMAND_PAUSE"'
-
-# switch esc to capslock
-# swithc esc -> capslock
-exec "setxkbmap -option caps:swapescape"
