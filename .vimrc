@@ -19,6 +19,8 @@ Plug 'gyim/vim-boxdraw'
 Plug 'vim-scripts/DrawIt'
 " COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" RC File
+Plug 'weakish/rcshell.vim'
 
 " THIS IS AN ALTERNATIVE THAN COC
 " ReasonML
@@ -39,27 +41,28 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "   Plug 'roxma/nvim-yarp'
 "   Plug 'roxma/vim-hug-neovim-rpc'
 "   " `sudo pacman -S pypy3`
-"   " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
+"   " the path to python3 is obtained through executing `:echo exepath('python4')` in vim
 " endif
 " >>--> All Pack syntax highlight
 Plug 'sheerun/vim-polyglot' 
-if filereadable("/usr/bin/pypy3")
+if glob("/usr/bin/pypy3")
     let g:python3_host_prog = "/usr/bin/pypy3"
 endif
+
 " >>--> FZF Plugin
-if filereadable("/usr/local/opt/fzf")
-  Plug '/usr/local/opt/fzf' 
+if glob("/usr/local/opt/fzf")
+    Plug '/usr/local/opt/fzf' 
 else
-  Plug 'junegunn/fzf.vim', {'dir': '~/.fzf', 'do': './install --all'}
+    Plug 'junegunn/fzf.vim', {'dir': '~/.fzf', 'do': './install --all'}
 endif
 
 Plug 'alok/notational-fzf-vim'
- 
+
 " Dash Documentation
 " Plug 'rizzatti/dash.vim'
 
 " NERDTreeToggle 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'preservim/nerdtree' 
 Plug 'dsimidzija/vim-nerdtree-ignore'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
@@ -106,12 +109,19 @@ Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive' 
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-conflicted'
-Plug 'mattn/webapi-vim'
-Plug 'mattn/vim-gist'
+Plug 'jreybert/vimagit'
+" Plug 'mattn/webapi-vim'
+" Plug 'mattn/vim-gist'
 
 " Theme / Interface
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" indentline
+Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
+" Session
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
 " Scoll
 Plug 'yuttie/comfortable-motion.vim'
 " Plug 'nanotech/jellybeans.vim'
@@ -126,6 +136,11 @@ Plug 'chrisbra/Colorizer'
 
 " Icon
 Plug 'ryanoasis/vim-devicons'
+" OpenAPI
+" Need `pip install --user openapi-spec-validator`
+Plug 'srivathsanmurali/OpenAPIValidate.vim'
+Plug 'hsanson/vim-openapi'
+Plug 'xavierchow/vim-swagger-preview'
 
 " Generic Programming Support Plug 'honza/vim-snippets'
 " Plug 'Townk/vim-autoclose'
@@ -153,6 +168,25 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'nicwest/vim-http'
 " Productivity ? 
 Plug 'itchyny/calendar.vim'
+" GQL
+Plug 'jparise/vim-graphql'
+" ReScript
+Plug 'rescript-lang/vim-rescript'
+
+
+"" GET THE FUCKUP
+" WAKE THE FUCKUP
+" WIPE THE SYSTEM
+" AND JUST FUCT THEM ALL 
+Plug 'arp242/startscreen.vim'
+function! BringMeTheVIM()
+    read ~/.vim/vimrc.d/amoscreen.bmth
+    " Some margin for readability
+    :silent %>>
+    " Go to line 1
+    :1
+endfun
+let g:Startscreen_function = function('BringMeTheVIM')
 """ 
 call plug#end()
 " THIS IS AN ALTERNATIVE THAN COC
@@ -166,12 +200,12 @@ call plug#end()
 "
 " plug: fzf-notational
 let g:nv_search_paths = [
-    \'~/wiki', 
-    \'~/writing', 
-    \'docs.md' , 
-    \'./notes.md',
-    \'~/me/rin.rocks/content'
-    \]
+            \'~/wiki', 
+            \'~/writing', 
+            \'docs.md' , 
+            \'./notes.md',
+            \'~/me/rin.rocks/content'
+            \]
 
 " source vim configuration from ~/.vim/vimrc.d/
 for f in split(glob('~/.vim/vimrc.d/*.vim'), '\n')
@@ -213,3 +247,35 @@ let g:calendar_google_task = 1
 if filereadable("~/.cache/calendar.vim/credentials.vim")
     source ~/.cache/calendar.vim/credentials.vim
 endif
+" ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
+" ## let s:opam_share_dir = system("opam config var share")
+" ## let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+" ## 
+" ## let s:opam_configuration = {}
+" ## 
+" ## function! OpamConfOcpIndent()
+" ##   execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+" ## endfunction
+" ## let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+" ## 
+" ## function! OpamConfOcpIndex()
+" ##   execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
+" ## endfunction
+" ## let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
+" ## 
+" ## function! OpamConfMerlin()
+" ##   let l:dir = s:opam_share_dir . "/merlin/vim"
+" ##   execute "set rtp+=" . l:dir
+" ## endfunction
+" ## let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+" ## 
+" ## let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
+" ## let s:opam_check_cmdline = ["opam list --installed --short --safe "] + s:opam_packages
+" ## let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
+" ## for tool in s:opam_packages
+" ##   " Respect package order (merlin should be after ocp-index)
+" ##   if count(s:opam_available_tools, tool) > 0
+" ##     call s:opam_configuration[tool]()
+" ##   endif
+" ## endfor
+" ## end of OPAM user-setup addition for vim / base ## keep this line

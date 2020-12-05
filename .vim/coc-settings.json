@@ -1,4 +1,5 @@
 {
+  
   "diagnostic.virtualText": true,
   "diagnostic.errorSign": "👿",
   "diagnostic.warningSign": "⚠️",
@@ -9,9 +10,13 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "reason",
     "javascript",
-    "json",
+    "javascriptreact",
     "typescript",
-    "java"
+    "typescriptreact",
+    "graphql",
+    "json",
+    "java",
+    "yaml"
   ],
   "java.jdt.ls.vmargs": "-Dfile.encoding=UTF-8 -noverify -Xmx1G -XX:+UseG1GC",
   "java.trace.server": "verbose",

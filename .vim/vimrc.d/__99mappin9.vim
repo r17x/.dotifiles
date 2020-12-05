@@ -10,13 +10,9 @@ map <C-p> :Files<CR>
 "" CTRL + [
 " map <C-;> :Rg<CR>
 "" CTRL + n 
-if exists(":NERDTreeToggle") 
   map <C-n> :NERDTreeToggle<CR> 
-endif
 "" CTRL + m 
-if exists(":TagbarToggle") 
   map <C-m> :TagbarToggle<CR>
-endif
 
 imap ;; <Esc>
 imap ii <Esc>
@@ -27,37 +23,35 @@ nmap :Q :q<CR>
 nmap :Q! :q!<CR>
 nmap :WQ :wq<CR>
 
-if exists(":Tabularize")
-  " Git file list
-  noremap <leader>G :Git<CR>
-  " Browser file in vim
-  noremap <leader>gf :GFiles<CR> 
-  " Git split 
-  noremap <leader>gsp :Gsplit<CR> 
-  " Git diff
-  noremap <leader>gds :Gdiffsplit<CR> 
-  " Git log
-  noremap <leader>gll :Glog<CR>
-  " Git fetch all
-  noremap <leader>gfa :Git fetch --all<CR>
-  " Git Status
-  noremap <leader>gs :Gstatus<CR>
-  " Git Push 
-  noremap <leader>gps :Gpush<CR>
-  " Git Pull
-  noremap <leader>gpl :Gpull<CR>
-  " Git Add/Write
-  noremap <leader>gw :Gwrite<CR> 
-  " Git commit
-  noremap <leader>gcm :Gcommit<CR>
-  " Git mergetool
-  noremap <leader>gmt :Git mergetool<CR>
-  " vim-conflicted
-  noremap <leader>gnc :GitNextConflict<CR>
-  " Use `gl` and `gu` rather than the default conflicted diffget mappings
-  let g:diffget_local_map = 'gl'
-  let g:diffget_upstream_map = 'gu'
-endif
+" Git file list
+noremap <leader>G :Git<CR>
+" Browser file in vim
+noremap <leader>gf :GFiles<CR> 
+" Git split 
+noremap <leader>gsp :Gsplit<CR> 
+" Git diff
+noremap <leader>gds :Gdiffsplit<CR> 
+" Git log
+noremap <leader>gll :Glog<CR>
+" Git fetch all
+noremap <leader>gfa :Git fetch --all<CR>
+" Git Status
+noremap <leader>gs :Gstatus<CR>
+" Git Push 
+noremap <leader>gps :Gpush<CR>
+" Git Pull
+noremap <leader>gpl :Gpull<CR>
+" Git Add/Write
+noremap <leader>gw :Gwrite<CR> 
+" Git commit
+noremap <leader>gcm :Gcommit<CR>
+" Git mergetool
+noremap <leader>gmt :Git mergetool<CR>
+" vim-conflicted
+noremap <leader>gnc :GitNextConflict<CR>
+" Use `gl` and `gu` rather than the default conflicted diffget mappings
+let g:diffget_local_map = 'gl'
+let g:diffget_upstream_map = 'gu'
 
 "" Mac User Map HJKL
 imap ˙ <Left>
