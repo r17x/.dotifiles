@@ -295,8 +295,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db-
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 
 # touchpad on and off controller on laptop with Fn+<touchpad control functional key>
-bindsym XF86TouchpadOn exec --no-startup-id synclient Touchpadoff=0
-bindsym XF86TouchpadOff exec --no-startup-id synclient Touchpadoff=1
+# bindsym XF86TouchpadOn exec --no-startup-id synclient Touchpadoff=0
+# bindsym XF86TouchpadOff exec --no-startup-id synclient Touchpadoff=1
 
 # scrout
 bindsym --release Print exec spectacle -f --desktopfile '%Y%m%d_%H%M%S.png' -o '~/Desktop/screenshoots'
@@ -328,6 +328,7 @@ bindsym $mod+x exec --no-startup-id ~/.config/polypomo/polypomo lock
 # TODO
 bindsym $mod+n exec 'notify-send "DUNE_COMMAND_RESUME"'
 bindsym $mod+Shift+n exec 'notify-send "DUNE_COMMAND_PAUSE"'
+bindsym $mod+m exec dunstctl close-all
 
 # switch esc to capslock
 # swithc esc -> capslock
