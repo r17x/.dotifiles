@@ -4,6 +4,9 @@ if [[ $machine == 'linux'  ]]; then
 fi
 
 alias cat=bat
+# git pull remote by current branch
+alias pullhead='git pull origin $(git rev-parse --abbrev-ref HEAD)'
+alias ph="pullhead"
 alias gf="git flow"
 alias gl="git log --graph --oneline --all"
 alias gll="git log --oneline --decorate --all --graph --stat"
@@ -24,9 +27,11 @@ alias -g L="| less"
 # alias -g C="| pbcopy"
 alias -g P="pbpaste"
 alias ys="yarn start"
+alias ns="npm run start"
 alias yb="yarn build"
-alias v="vim"
 alias tm="tmux"
+alias vi="vim"
+alias vim="nvim"
 alias ...="../../"
 alias ....="../../../"
 alias .....="../../../../"
