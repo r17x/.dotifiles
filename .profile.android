@@ -1,5 +1,16 @@
 # [React-Native] Android Configuration
 # REcommended use .autoenv.zsh for load this on demand
+### Machine portable detect ###
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=linux;;
+    Darwin*)    machine=darwin;;
+    CYGWIN*)    machine=cygwin;;
+    MINGW*)     machine=minGw;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+### Machine portable detect ###
+### FLAG ###
 export ANDROID_HOME=$HOME/Android
 export ANDROID_SDK=$ANDROID_HOME
 export ANDROID_SDK_ROOT=$ANDROID_SDK
