@@ -54,10 +54,8 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h;
-# exec notify-send 'tile horizontally'
-bindsym $mod+v split v;
-# exec notify-send 'tile vertically'
+bindsym $mod+h split h;exec notify-send 'tile horizontally'
+bindsym $mod+v split v; exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
@@ -289,6 +287,8 @@ mode "$mode_gaps_outer" {
 
 # set power-manager and volume control
 exec --no-startup-id mate-power-manager
+# KDEConnect
+exec --no-startup-id /usr/lib/kdeconnectd
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db- unmute
@@ -326,8 +326,7 @@ bindsym $mod+z exec --no-startup-id ~/.config/polypomo/polypomo toggle
 bindsym $mod+Shift+z exec --no-startup-id ~/.config/polypomo/polypomo end
 bindsym $mod+x exec --no-startup-id ~/.config/polypomo/polypomo lock
 # TODO
-bindsym $mod+n exec 'notify-send "DUNE_COMMAND_RESUME"'
-bindsym $mod+Shift+n exec 'notify-send "DUNE_COMMAND_PAUSE"'
+bindsym $mod+Shift+m exec dunstctl set-paused toggle
 bindsym $mod+m exec dunstctl close-all
 
 # switch esc to capslock
