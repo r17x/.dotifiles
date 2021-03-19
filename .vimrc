@@ -93,6 +93,7 @@ Plug 'ananagame/vimsence'
 Plug 'juvenn/mustache.vim'
 
 " Markdown / Writting
+Plug 'mzlogin/vim-markdown-toc'
 Plug 'reedes/vim-pencil'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
