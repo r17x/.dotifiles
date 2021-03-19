@@ -6,7 +6,10 @@ fi
 alias cat=bat
 # git pull remote by current branch
 alias pullhead='git pull origin $(git rev-parse --abbrev-ref HEAD)'
-alias ph="pullhead"
+alias plh="pullhead"
+alias pushhead='git push origin $(git rev-parse --abbrev-ref HEAD)'
+alias psh="pushhead"
+alias gtemp="git commit -m \"temp\" --no-verify"
 alias gf="git flow"
 alias gl="git log --graph --oneline --all"
 alias gll="git log --oneline --decorate --all --graph --stat"
