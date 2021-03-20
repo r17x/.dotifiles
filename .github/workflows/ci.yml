@@ -1,0 +1,19 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  linux:
+    name: bootstrap test linux
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt-get install yadm
+      - run: yadm clone https://github.com/ri7nz/.dotifiles
+      - run: yadm bootstrap
+  mac:
+    name: bootstrap test mac
+    runs-on: macos-latest
+    steps:
+      - run: brew install yadm
+      - run: yadm clone https://github.com/ri7nz/.dotifiles
+      - run: yadm bootstrap
