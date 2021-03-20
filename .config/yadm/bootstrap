@@ -1,0 +1,63 @@
+#!/bin/sh
+
+cd $HOME
+
+### Machine portable detect ###
+getMachine () {
+    local unameOut="$(uname -s)"
+    case "${unameOut}" in
+        Linux*)     local machine=linux;;
+        Darwin*)    local machine=darwin;;
+        CYGWIN*)    local machine=cygwin;;
+        MINGW*)     local machine=minGw;;
+        *)          local machine="UNKNOWN:${unameOut}"
+    esac
+    echo "$machine"
+}
+isLinux () {
+  [ $(getMachine) == "linux" ]; return $?;
+}
+isDarwin () {
+  [ $(getMachine) == "darwin" ]; return $?;
+}
+### Machine portable detect ###
+wantTo () {
+ read -p "Do you want to bootstrap $1? [Y/n] " response
+ case $response in [yY][eE][sS]|[yY]|[jJ]|'') 
+     return 0;
+     ;;
+     *)
+     echo "cancelled"
+     return 1;
+     ;;
+ esac
+}
+### Tools ###
+bootstrap_VIM () {
+  if command -v vim >/dev/null 2>&1; then
+    echo "Bootstraping Vim"
+    vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+  fi
+}
+bootstrap_Homebrew () {
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  if [ -f "$HOME/.Brewfile" ]; then
+    echo "Updating homebrew bundle"
+    brew bundle --global
+  fi
+}
+### Tools ###
+### Greeting Machine ###
+echo "You're Machine is: $(getMachine)"
+### When is Linux based ###
+if isLinux; then
+  wantTo "VIM" && bootstrap_VIM
+fi
+### When is Darwin based ###
+if isDarwin; then
+  wantTo "HOMEBREW" && bootstrap_Homebrew 
+fi
