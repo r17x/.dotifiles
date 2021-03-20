@@ -49,4 +49,4 @@ let g:lightline = {
 if (has("termguicolors"))
   set termguicolors
 endif
-colorscheme edge
+silent! colorscheme edge

@@ -1,0 +1,25 @@
+name: CI
+
+on: [pull_request]
+
+jobs:
+  linux:
+    name: bootstrap test linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+      - run: sudo apt-get install yadm
+      - run: yadm clone https://github.com/ri7nz/.dotifiles
+      - run: yadm checkout ${{ github.head_ref }}
+      - run: yadm bootstrap
+  mac:
+    name: bootstrap test mac
+    runs-on: macos-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+      - run: brew install yadm
+      - run: yadm clone https://github.com/ri7nz/.dotifiles
+      - run: yadm checkout ${{ github.head_ref }}
+      - run: yadm bootstrap

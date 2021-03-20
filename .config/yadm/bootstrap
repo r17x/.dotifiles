@@ -14,11 +14,11 @@ getMachine () {
     esac
     echo "$machine"
 }
-isLinux () {
-  [ $(getMachine) == "linux" ]; return $?;
-}
-isDarwin () {
-  [ $(getMachine) == "darwin" ]; return $?;
+isMachine () {
+  if [ $(getMachine) = $1 ];then
+    return 0;
+  fi
+  return 1;
 }
 ### Machine portable detect ###
 wantTo () {
@@ -54,10 +54,11 @@ bootstrap_Homebrew () {
 ### Greeting Machine ###
 echo "You're Machine is: $(getMachine)"
 ### When is Linux based ###
-if isLinux; then
+if isMachine "linux"; then
   wantTo "VIM" && bootstrap_VIM
 fi
 ### When is Darwin based ###
-if isDarwin; then
+if isMachine "darwin"; then
   wantTo "HOMEBREW" && bootstrap_Homebrew 
+  wantTo "VIM" && bootstrap_VIM
 fi
