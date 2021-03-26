@@ -45,7 +45,7 @@ export YARN_BIN="`yarn global bin`"
 # Archwiki: https://wiki.archlinux.org/index.php/Ruby#Installing_gems_per-user_or_system-wide
 export RUBY_BIN="`ruby -e 'puts Gem.user_dir'`/bin"
 ### BASE PATH ###
-export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/bin/core_perl/:$HOME/.local/bin
+export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/bin/core_perl/:$HOME/.local/bin:$HOME/scripts/bin
 ### BASE PATH ###
 
 
