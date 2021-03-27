@@ -4,6 +4,9 @@ if [[ $machine == 'linux'  ]]; then
 fi
 
 alias cat=bat
+# conventional-commits
+alias commit-types='cat ~/scripts/docs/commit-types'
+alias ct='commit-types'
 # git pull remote by current branch
 alias pullhead='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 alias plh="pullhead"
