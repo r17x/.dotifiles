@@ -8,10 +8,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 ### TOP ###
-
+echo "machine: " 
+echo $machine
 # Common
 # export LC_CTYPE="en_US.UTF-8"
 # this function only check for not directory exist.
+
 export LANG=en_US.UTF-8
 export GPG_TTY=$(tty)
 export ZSH=~/.oh-my-zsh
@@ -62,7 +64,7 @@ eval "`fnm env `" # fnm init
 # opam configuration
 # test -r ~/.opam/opam-init/init.zsh && . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 # ocaml environment 
-eval $(opam env)
+test opam && eval $(opam env)
 
 ### DEVELOPMENT PATH (environment) ###
 

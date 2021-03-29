@@ -33,10 +33,32 @@ wantTo () {
  esac
 }
 ### Tools ###
+bootstrap_essentials () {
+  local deps="bat tmux pypy3"
+
+  isMachine "linux" && \
+    sudo pacman -Sy $deps
+
+  isMachine "darwin" && \
+    brew install $deps && \
+    brew instll --cask iterm2
+
+  curl -fsSL https://fnm.vercel.app/install | bash 
+  curl -fsSL https://yarnpkg.com/install | bash 
+}
 bootstrap_VIM () {
   if command -v vim >/dev/null 2>&1; then
     echo "Bootstraping Vim"
     vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+  fi
+}
+bootstrap_AUR () { 
+  if command -v pacaur >/dev/null 2>&1; then
+    echo "Bootstraping Pacaur"
+    local AUR=/tmp/pacaur
+    git clone https://aur.archlinux.org/pacaur.git $AUR
+    cd $AUR
+    makepkg -si
   fi
 }
 bootstrap_Homebrew () {
@@ -51,14 +73,15 @@ bootstrap_Homebrew () {
   fi
 }
 ### Tools ###
-### Greeting Machine ###
-echo "You're Machine is: $(getMachine)"
 ### When is Linux based ###
 if isMachine "linux"; then
+  wantTo "AUR" && bootstrap_AUR
+  wantTo "Essentials Install" && bootstrap_essentials
   wantTo "VIM" && bootstrap_VIM
 fi
 ### When is Darwin based ###
 if isMachine "darwin"; then
   wantTo "HOMEBREW" && bootstrap_Homebrew 
+  wantTo "Essentials Install" && bootstrap_essentials
   wantTo "VIM" && bootstrap_VIM
 fi
