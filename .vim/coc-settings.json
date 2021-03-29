@@ -1,5 +1,13 @@
 {
-  
+  "languageserver": {
+    "rescript": {
+    "enable": true,
+    "module": "~/.vim/plugged/vim-rescript/rescript-vscode/extension/server/out/server.js",
+    "args": ["--node-ipc"],
+    "filetypes": ["rescript"],
+    "rootPatterns": ["bsconfig.json"]
+    }
+  },
   "diagnostic.virtualText": true,
   "diagnostic.errorSign": "👿",
   "diagnostic.warningSign": "⚠️",
