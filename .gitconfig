@@ -4,7 +4,7 @@
   path = .gitconfig-work
 [includeIf "gitdir:~/me/"]
   path = .gitconfig-me
-[includeIf "gitdir:~/.local/share/yadm/repo.git"]
+[includeIf "gitdir:~/.local/share/yadm/"]
   path = .gitconfig-evil
 [includeIf "gitdir:~/evl/"]
   path = .gitconfig-evil
