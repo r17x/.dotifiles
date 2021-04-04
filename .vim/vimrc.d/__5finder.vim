@@ -47,3 +47,9 @@ let g:fzf_colors =
 " previous-history instead of down and up. If you don't like the change,
 " explicitly bind the keys to down and up in your .
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+" hide statusline
+if has('nvim') && !exists('g:fzf_layout')
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+endif
