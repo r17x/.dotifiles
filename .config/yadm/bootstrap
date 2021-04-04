@@ -43,7 +43,7 @@ bootstrap_essentials () {
     brew install $deps && \
     brew install --cask iterm2
 
-  curl -fsSL https://fnm.vercel.app/install | bash 
+  curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "./.fnm" --skip-shell
   curl -fsSL https://yarnpkg.com/install | bash 
 }
 bootstrap_VIM () {

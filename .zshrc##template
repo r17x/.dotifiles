@@ -39,6 +39,7 @@ export YARN_BIN="`yarn global bin`"
 ### BASE PATH ###
 export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/bin/core_perl/:$HOME/.local/bin:$HOME/scripts/bin
 export PATH=/usr/local/bin:$PATH
+export PATH=$FNM_HOME:$PATH
 ### BASE PATH ###
 
 
@@ -46,7 +47,6 @@ export PATH=/usr/local/bin:$PATH
 # export PATH=$FNM_BIN:$YARN_BIN:$PATH:$RUBY_BIN # fnm (multiple node.js)
 # export PATH=$RUBY_BIN:$FNM_BIN:$YARN_BIN:$PATH # fnm (multiple node.js)
 export ctags=/usr/local/bin/ctags
-eval "`fnm env`" # fnm init
 
 # TODO make it with .autoenv (base on directory) - ondemand load path
 # emcc/c\c++/wasm environment 
@@ -62,12 +62,13 @@ eval "`fnm env`" # fnm init
 [ -f ~/.fzf.zsh ] \
     && source ~/.fzf.zsh
 
-{% include ".zshrc.local" %}
+{% include ".config/zsh/zshrc.zsh" %}
 
-{% include ".zshrc.extra.{{ yadm.os }}" %}
+{% include ".config/zsh/{{ yadm.os }}.zsh" %}
+
+{% inclufe ".config/zsh/fnm.zsh" %}
 
 {% include ".aliases" %}
-
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
