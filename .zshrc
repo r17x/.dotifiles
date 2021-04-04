@@ -8,14 +8,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 ### TOP ###
-echo "machine: " 
-echo $machine
 # Common
 # export LC_CTYPE="en_US.UTF-8"
 # this function only check for not directory exist.
 
 export LANG=en_US.UTF-8
-export GPG_TTY=$(tty)
 export ZSH=~/.oh-my-zsh
 export EDITOR=vim
 ### Machine portable detect ###
@@ -45,16 +42,18 @@ export YARN_BIN="`yarn global bin`"
 # see .profile.android
 # Ruby
 # Archwiki: https://wiki.archlinux.org/index.php/Ruby#Installing_gems_per-user_or_system-wide
-export RUBY_BIN="`ruby -e 'puts Gem.user_dir'`/bin"
+# export RUBY_BIN="`ruby -e 'puts Gem.user_dir'`/bin"
 ### BASE PATH ###
 export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/bin/core_perl/:$HOME/.local/bin:$HOME/scripts/bin
+export PATH=/usr/local/bin:$PATH
 ### BASE PATH ###
 
 
 ### DEVELOPMENT PATH (environment) ###
-export PATH=$FNM_BIN:$YARN_BIN:$PATH:$RUBY_BIN # fnm (multiple node.js)
+# export PATH=$FNM_BIN:$YARN_BIN:$PATH:$RUBY_BIN # fnm (multiple node.js)
+export PATH=$RUBY_BIN:$FNM_BIN:$YARN_BIN:$PATH # fnm (multiple node.js)
 export ctags=/usr/local/bin/ctags
-eval "`fnm env `" # fnm init
+eval "`fnm env`" # fnm init
 
 # TODO make it with .autoenv (base on directory) - ondemand load path
 # emcc/c\c++/wasm environment 
@@ -68,17 +67,15 @@ test opam && eval $(opam env)
 
 ### DEVELOPMENT PATH (environment) ###
 
-#### LOG ####
-export NVIM_COC_LOG_FILE="$HOME/log/nvim.coc.log"
-export NVIM_PYTHON_LOG_FILE="$HOME/log/nvim.python.log"
-export XDG_RUNTIME_DIR="$HOME/log/xdg"
-#### LOG ####
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 #### SOURCE ###
 source $HOME/.aliases
 source $HOME/.zshrc.local
 #### SOURCE ###
 
-# fnm
-export PATH=/home/r177/.fnm/:$PATH
-eval "`fnm env`"
+

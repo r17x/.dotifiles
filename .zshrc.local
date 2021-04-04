@@ -1,27 +1,13 @@
-#####################
-# FZF Configuration #
-#####################
-
-bindkey -e
-
-[ -f /usr/share/fzf/key-bindings.zsh ] && \
-    source /usr/share/fzf/key-bindings.zsh && \
-    source /usr/share/fzf/completion.zsh ]
-# Feed the output of fd into fzf
-# fd --type f | fzf
-
-# Setting fd as the default source for fzf
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-
-# To apply the command to CTRL-T as well
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-
+##################
+#     zinit      #
+##################
 ##################
 # Aloxaf/fzf-tab #
 # style config   #
 ##################
 
+# fix: issue fork/exec /bin/zsh invalid argument
+# see: https://github.com/Aloxaf/fzf-tab/issues/77#issuecomment-620626544
 # disable sort when completing options of any command
 zstyle ':completion:complete:*:options' sort false
 
@@ -144,8 +130,6 @@ zt 0b light-mode for \
 ##################
 
 zt 0c light-mode for \
-    pack'bgn-binary' \
-        junegunn/fzf \
     sbin from'gh-r' submods'NICHOLAS85/zsh-fast-alias-tips -> plugin' pick'plugin/*.zsh' \
         sei40kr/fast-alias-tips-bin
 
@@ -167,4 +151,60 @@ typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     time
     newline
 )
+
+# example:
+# $ ls 
+# - dir1
+# $ dir1 // cd dir1
 setopt  autocd autopushd 
+#####################
+# FZF Configuration #
+#####################
+
+bindkey -e
+
+[ -f ~/.fzf.zsh ] && \
+    source ~/.fzf.zsh
+
+[ -f /usr/share/fzf/key-bindings.zsh ] && \
+    source /usr/share/fzf/key-bindings.zsh && \
+    source /usr/share/fzf/completion.zsh ]
+# Feed the output of fd into fzf
+# fd --type f | fzf
+
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export FZF_DEFAULT_OPTS="
+--layout=reverse
+--info=inline
+--height=80%
+--multi
+--preview-window=:hidden
+--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+--color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'
+--prompt='∼ ' --pointer='▶' --marker='✓'
+--bind '?:toggle-preview'
+--bind 'ctrl-a:select-all'
+--bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
+--bind 'ctrl-e:execute(echo {+} | xargs -o vim)'
+--bind 'ctrl-v:execute(code {+})'
+"
+
+# auto cd when selected directory in FZF preview
+# fd() {
+#  local dir
+#  dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
+#       -print 2> /dev/null | fzf +m) &&
+#  cd "$dir"
+# }
+
+#### LOG ####
+export NVIM_COC_LOG_FILE="$HOME/log/nvim.coc.log"
+export NVIM_PYTHON_LOG_FILE="$HOME/log/nvim.python.log"
+export XDG_RUNTIME_DIR="$HOME/log/xdg"
+#### LOG ####
+#
