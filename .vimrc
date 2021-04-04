@@ -45,16 +45,23 @@ Plug 'weakish/rcshell.vim'
 " endif
 " >>--> All Pack syntax highlight
 Plug 'sheerun/vim-polyglot' 
-if glob("/usr/bin/pypy3")
+if !empty(glob("/usr/bin/pypy3"))
     let g:python3_host_prog = "/usr/bin/pypy3"
 endif
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " >>--> FZF Plugin
-if glob("/usr/local/opt/fzf")
-    Plug '/usr/local/opt/fzf' 
-else
-    Plug 'junegunn/fzf.vim', {'dir': '~/.fzf', 'do': './install --all'}
-endif
+"if isdirectory("/usr/local/opt/fzf")
+"  " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"  " Plug 'junegunn/fzf.vim'
+"
+"  Plug '/usr/local/opt/fzf', { 'do': { -> fzf#install() } }
+"  Plug '/usr/local/opt/fzf'
+"else
+"  Plug '/usr/local/opt/fzf'
+"  " Plug 'junegunn/fzf.vim', {'dir': '~/.fzf', 'do': './install --all'}
+"endif
 
 Plug 'alok/notational-fzf-vim'
 
