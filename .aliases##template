@@ -1,30 +1,18 @@
-### Machine portable detect ###
-unameOut="$(uname -s)"
-case "${unameOut}" in
-    Linux*)     machine=linux;;
-    Darwin*)    machine=darwin;;
-    CYGWIN*)    machine=cygwin;;
-    MINGW*)     machine=minGw;;
-    *)          machine="UNKNOWN:${unameOut}"
-esac
-### Machine portable detect ###
-    
-if [[ $machine == 'linux'  ]]; then
-    alias pbcopy='xclip -selection clipboard'
-    alias pbpaste='xclip -selection clipboard -o'
-    alias ls="ls --color=auto"
-fi
-if [[ $machine == 'darwin'  ]]; then
-    # it's brew but update after install packages
-    function bruw() {
-        HOMEBREW_NO_AUTO_UPDATE=1 brew "$@" && brew update
-    }
+{% if yadm.os == "Darwin" %}
+# it's brew but update after install packages
+function bruw() {
+    HOMEBREW_NO_AUTO_UPDATE=1 brew "$@" && brew update
+}
 
-    alias pbcopy='xclip -selection clipboard'
-    alias pbpaste='xclip -selection clipboard -o'
-    alias ls="ls -G"
-    alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
-fi
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias ls="ls -G"
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+{% else %}
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias ls="ls --color=auto"
+{% endif %}
 
 alias cat=bat
 alias l='ls -l'
