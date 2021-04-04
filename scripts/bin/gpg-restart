@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gpgconf --kill gpg-agent
+gpg-agent --homedir "${GNUPGHOME:-$HOME/.gnupg}" --daemon
