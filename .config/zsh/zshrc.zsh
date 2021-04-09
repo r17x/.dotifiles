@@ -86,6 +86,7 @@ zt for \
     OMZL::git.zsh \
     OMZL::history.zsh \
     OMZP::fasd \
+    dominik-schwabe/zsh-fnm \
     Aloxaf/fzf-tab 
 
 ######################
@@ -130,7 +131,7 @@ zt 0b light-mode for \
 ##################
 
 zt 0c light-mode for \
-    sbin from'gh-r' submods'NICHOLAS85/zsh-fast-alias-tips -> plugin' pick'plugin/*.zsh' \
+    sbin from'gh-r' as'program' sei40kr/zsh-fast-alias-tips \
         sei40kr/fast-alias-tips-bin
 
 zt 0c light-mode pick'/dev/null' for \

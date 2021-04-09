@@ -27,7 +27,6 @@ export ARCHFLAGS="-arch x86_64"
 
 export ZSH=~/.oh-my-zsh
 export LOCAL_BIN=$HOME/.local/bin
-export FNM_HOME=$HOME/.fnm
 # export FNM_BIN=$FNM_HOME/bin
 export YARN_BIN="`yarn global bin`"
 # export JAVA_HOME="/usr/lib/jvm/default" # java_home /usr/libexec/java_home -v x.x
@@ -66,9 +65,18 @@ export ctags=/usr/local/bin/ctags
 
 {% include ".config/zsh/{{ yadm.os }}.zsh" %}
 
-{% inclufe ".config/zsh/fnm.zsh" %}
-
 {% include ".aliases" %}
+
+# golang
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+### PERL
+PATH="${HOME}/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="${HOME}/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="${HOME}/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"${HOME}/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"; export PERL_MM_OPT;
