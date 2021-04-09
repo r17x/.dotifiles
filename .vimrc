@@ -46,7 +46,9 @@ Plug 'weakish/rcshell.vim'
 " >>--> All Pack syntax highlight
 Plug 'sheerun/vim-polyglot' 
 if !empty(glob("/usr/bin/pypy3"))
-    let g:python3_host_prog = "/usr/bin/pypy3"
+    " uncomment when stable pypy3 in big surp
+    " let g:python3_host_prog = "/usr/bin/pypy3" "
+    
 endif
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -187,6 +189,8 @@ Plug 'rescript-lang/vim-rescript'
 " WIPE THE SYSTEM
 " AND JUST FUCT THEM ALL 
 Plug 'arp242/startscreen.vim'
+" Map popup
+Plug 'liuchengxu/vim-which-key'
 function! BringMeTheVIM()
     read ~/.vim/vimrc.d/amoscreen.bmth
     " Some margin for readability

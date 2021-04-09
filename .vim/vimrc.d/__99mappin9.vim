@@ -68,6 +68,8 @@ noremap <C-l> <C-w>l
 nnoremap <Leader>o :Files<CR> 
 nnoremap <Leader>O :Rg<CR>
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>f :Format<CR> 
+nnoremap <Leader>cr :CocRestart<CR>
 
 " Disable arrow movement, resize splits instead.
 if get(g:, 'elite_mode')
