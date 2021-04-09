@@ -2,6 +2,8 @@
 	program = gpg
 [includeIf "gitdir:~/w0/"]
   path = .gitconfig-work
+[includeIf "gitdir:~/go/"]
+  path = .gitconfig-work
 [includeIf "gitdir:~/me/"]
   path = .gitconfig-me
 [includeIf "gitdir:~/.local/share/yadm/"]
@@ -28,3 +30,5 @@
 	prompt = false
 [pull]
 	ff = only
+[url "git@gitlab.com:"]
+  insteadOf = https://gitlab.com/ 
