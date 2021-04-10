@@ -45,8 +45,20 @@ if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
 fi
 
 source "$HOME/.zinit/bin/zinit.zsh"
+
 autoload -Uz _zinit
+
 (( ${+_comps} )) && _comps[zinit]=_zinit
+# read https://github.com/sorin-ionescu/prezto/blob/b01f02aa5c6714430647a4ee854149e9a336270a/modules/completion/init.zsh#L31-L41 
+autoload -Uz compinit
+_comp_files=(${ZDOTDIR:-$HOME}/.zcompdump(Nm-20))
+if (( $#_comp_files )); then
+  compinit -i -C
+else
+  compinit -i
+fi
+unset _comp_files
+
 ### End of Zinit installer's chunk
 
 
@@ -81,7 +93,6 @@ zt light-mode compile'*handler' for \
    zinit-zsh/z-a-submods
 
 # Plugins
-
 zt for \
     OMZL::git.zsh \
     OMZL::history.zsh \
@@ -208,4 +219,3 @@ export NVIM_COC_LOG_FILE="$HOME/log/nvim.coc.log"
 export NVIM_PYTHON_LOG_FILE="$HOME/log/nvim.python.log"
 export XDG_RUNTIME_DIR="$HOME/log/xdg"
 #### LOG ####
-#
