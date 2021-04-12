@@ -46,6 +46,12 @@ nnoremap <Leader>oz :vnew ~/.zshrc<CR>
 nnoremap <Leader>om :vnew ~/.vim/vimrc.d/__99mappin9.vim<CR>
 " Type {<Space> + oz} for open zsh configuration template
 nnoremap <Leader>ozt :vnew ~/.zshrc\#\#template<CR>
+" Type {<Space> + pi} for execute plug install
+nnoremap <Leader>pi :PlugInstall<CR>
+" Type {<Space> + pu} for execute plug clean
+nnoremap <Leader>pu :PlugUpdate<CR>
+" Type {<Space> + pc} for execute plug clean
+nnoremap <Leader>pc :PlugClean<CR>
 " Type {<Space> + cr} for restart coc.nvim
 nnoremap <Leader>cr :CocRestart<CR>
 " Type {<Space> + G} for Git file list

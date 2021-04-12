@@ -29,8 +29,6 @@ Plug 'jamessan/vim-gnupg'
 " gcc to comment out a line (takes a count)
 " gc to comment out the target of a motion
 Plug 'tpope/vim-commentary'
-" when you write if it will make endif 
-Plug 'tpope/vim-endwise'
 " Diagram / Draw
 Plug 'gyim/vim-boxdraw'
 Plug 'vim-scripts/DrawIt'
