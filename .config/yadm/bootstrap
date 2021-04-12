@@ -40,11 +40,8 @@ bootstrap_essentials () {
     sudo pacman -Sy $deps
 
   isMachine "darwin" && \
-    brew install $deps && \
+    brew install $deps "coreutils" && \
     brew install --cask iterm2
-
-  curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "./.fnm" --skip-shell
-  curl -fsSL https://yarnpkg.com/install | bash 
 }
 bootstrap_VIM () {
   if command -v vim >/dev/null 2>&1; then
