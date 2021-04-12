@@ -1,9 +1,9 @@
 <h1 align="center">
-    HeLL0 w0Rld ¯\_(ツ)_/¯
+HeLL0 w0Rld ¯\_(ツ)_/¯
 </h1>
 
 <p align="center">
-  <img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/demo.gif" alt="System Information" />
+<img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/demo.gif" alt="System Information" />
 </p>
 
 
@@ -11,96 +11,123 @@ My personal setup `dotfiles`
 
 > manage with **[yadm](https://yadm.io/)** and take screenshot with **[KDE - spectacle](https://github.com/KDE/spectacle)**.
 
+# Table of Contents
+<!-- vim-markdown-toc GFM -->
+
+* [Essentials](#essentials)
+        * [**Terminal**](#terminal)
+        * [**ZSH**](#zsh)
+        * [**Editor**](#editor)
+        * [**Package Management**](#package-management)
+* [Preview](#preview)
+    * [Linux](#linux)
+    * [MacOS](#macos)
+
+<!-- vim-markdown-toc -->
+
 # Essentials
 
 ### **Terminal**
-   
+
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/alacritty/alacritty?label=Alacritty)](https://github.com/alacritty/alacritty)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/tmux/tmux?label=Tmux)](https://github.com/tmux/tmux)
 ### **ZSH**
 current `zsh` performance:
 ```zsh
 Benchmark your zsh configuration ~/.zshrc
-        0.28 real         0.19 user         0.08 sys
-        0.28 real         0.19 user         0.07 sys
-        0.29 real         0.19 user         0.08 sys
-        0.27 real         0.19 user         0.07 sys
-        0.27 real         0.19 user         0.07 sys
-        0.27 real         0.19 user         0.07 sys
-        0.29 real         0.19 user         0.07 sys
-        0.28 real         0.19 user         0.07 sys
-        0.28 real         0.19 user         0.07 sys
-        0.27 real         0.19 user         0.07 sys
+0.28 real         0.19 user         0.08 sys
+0.28 real         0.19 user         0.07 sys
+0.29 real         0.19 user         0.08 sys
+0.27 real         0.19 user         0.07 sys
+0.27 real         0.19 user         0.07 sys
+0.27 real         0.19 user         0.07 sys
+0.29 real         0.19 user         0.07 sys
+0.28 real         0.19 user         0.07 sys
+0.28 real         0.19 user         0.07 sys
+0.27 real         0.19 user         0.07 sys
 ```   
 before `zsh` performance:
 
 ```zsh
-        0.46 real         0.31 user         0.13 sys
-        0.45 real         0.31 user         0.12 sys
-        0.43 real         0.30 user         0.12 sys
-        0.44 real         0.31 user         0.12 sys
-        0.44 real         0.30 user         0.12 sys
-        0.43 real         0.30 user         0.11 sys
-        0.43 real         0.30 user         0.11 sys
-        0.43 real         0.30 user         0.12 sys
-        0.43 real         0.30 user         0.12 sys
-        0.44 real         0.30 user         0.12 sys
+0.46 real         0.31 user         0.13 sys
+0.45 real         0.31 user         0.12 sys
+0.43 real         0.30 user         0.12 sys
+0.44 real         0.31 user         0.12 sys
+0.44 real         0.30 user         0.12 sys
+0.43 real         0.30 user         0.11 sys
+0.43 real         0.30 user         0.11 sys
+0.43 real         0.30 user         0.12 sys
+0.43 real         0.30 user         0.12 sys
+0.44 real         0.30 user         0.12 sys
 ```
 
 ### **Editor**
-   
+
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/vim/vim?label=Vim)](https://github.com/vim/vim)
-   
+
 ### **Package Management**
 * **System**
-   
+
 ![Arch Linux package](https://img.shields.io/archlinux/v/core/x86_64/pacman?label=Pacman) 
 ![AUR version](https://img.shields.io/aur/version/yay?label=Yay)
 ![AUR version](https://img.shields.io/aur/version/pacaur?label=Pacaur)
-   
+
 * **Node.js**
-   
+
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/Schniz/fnm?label=fnm)](https://github.com/Schniz/fnm)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/yarnpkg/yarn?label=yarn)](https://github.com/yarnpkg/yarn)
-   
+
 # Preview
 
 ## Linux
 <details>
-  <summary>Click Me</summary>
+<summary>Click Me</summary>
 <p align="center">
-  <img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/current.png" alt="System Information" />
+<img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/current.png" alt="System Information" />
 </p>
 
 <p align="center">
-    <h3> Linux </h2>
-    <a href="#">
-        <img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/sample-linux.png"/>
-    </a>
+<h3> Linux </h2>
+<a href="#">
+<img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/sample-linux.png"/>
+</a>
 </p>
 
 <p align="center">
-    <h3> Linux - Menu with Rofi</h2>
-    <a href="#">
-        <img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/sample-linux-menu.png"/>
-    </a>
+<h3> Linux - Menu with Rofi</h2>
+<a href="#">
+<img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/sample-linux-menu.png"/>
+</a>
 </p>
 
 <p align="center">
-    <h3> Linux - Clipboard Manager with Rofi + greenclip</h2>
-    <a href="#">
-        <img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/sample-linux-clipboard.png"/>
-    </a>
+<h3> Linux - Clipboard Manager with Rofi + greenclip</h2>
+<a href="#">
+<img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/sample-linux-clipboard.png"/>
+</a>
 </p>
 </details>
 
 ## MacOS
 <details>
-  <summary>Click Me</summary>
+<summary>Click Me</summary>
 <p align="center">
-    <h3> MacOS </h2>
-    <a href="#">
-        <img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/sample-mac.png"/>
-    </a>
+<h3> MacOS </h2>
+<a href="#">
+<img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/sample-mac.png"/>
+</a>
+</p>
+<p align="center">
+<h3> MacOS - with Tmux</h2>
+<a href="#">
+<img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/sample-mac-tmux.png"/>
+</a>
+</p>
+<p align="center">
+
+<h3> MacOS - Neofetch </h2>
+<a href="#">
+<img src="https://github.com/ri7nz/.dotifiles/blob/master/docs/sample-mac-fetch.png"/>
+</a>
 </p>
 </details>
