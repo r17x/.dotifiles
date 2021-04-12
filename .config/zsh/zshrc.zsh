@@ -98,7 +98,9 @@ zt for \
     OMZL::history.zsh \
     OMZP::fasd \
     dominik-schwabe/zsh-fnm \
-    Aloxaf/fzf-tab 
+    Aloxaf/fzf-tab \
+    g-plane/icd \
+    ri7nz/zsh-yarn
 
 ######################
 # Trigger-load block #
@@ -141,10 +143,6 @@ zt 0b light-mode for \
 # Wait'0c' block #
 ##################
 
-zt 0c light-mode for \
-    sbin from'gh-r' as'program' sei40kr/zsh-fast-alias-tips \
-        sei40kr/fast-alias-tips-bin
-
 zt 0c light-mode pick'/dev/null' for \
     sbin'fd*/fd;fd*/fd -> fdfind' from"gh-r" \
          @sharkdp/fd \
@@ -156,8 +154,12 @@ zt 0c light-mode as'null' for \
     sbin"bin/git-dsf;bin/diff-so-fancy" \
         zdharma/zsh-diff-so-fancy \
     sbin \
-        paulirish/git-open
+        paulirish/git-open \
 
+zct light-mode from'gh-r' for \
+    as'program' sei40kr/fast-alias-tips-bin \
+    sei40kr/zsh-fast-alias-tips
+    
 typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     taskwarrior
     time
