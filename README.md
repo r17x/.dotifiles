@@ -17,7 +17,36 @@ My personal setup `dotfiles`
    
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/alacritty/alacritty?label=Alacritty)](https://github.com/alacritty/alacritty)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/tmux/tmux?label=Tmux)](https://github.com/tmux/tmux)
-   
+### **ZSH**
+current `zsh` performance:
+```zsh
+Benchmark your zsh configuration ~/.zshrc
+        0.28 real         0.19 user         0.08 sys
+        0.28 real         0.19 user         0.07 sys
+        0.29 real         0.19 user         0.08 sys
+        0.27 real         0.19 user         0.07 sys
+        0.27 real         0.19 user         0.07 sys
+        0.27 real         0.19 user         0.07 sys
+        0.29 real         0.19 user         0.07 sys
+        0.28 real         0.19 user         0.07 sys
+        0.28 real         0.19 user         0.07 sys
+        0.27 real         0.19 user         0.07 sys
+```   
+before `zsh` performance:
+
+```zsh
+        0.46 real         0.31 user         0.13 sys
+        0.45 real         0.31 user         0.12 sys
+        0.43 real         0.30 user         0.12 sys
+        0.44 real         0.31 user         0.12 sys
+        0.44 real         0.30 user         0.12 sys
+        0.43 real         0.30 user         0.11 sys
+        0.43 real         0.30 user         0.11 sys
+        0.43 real         0.30 user         0.12 sys
+        0.43 real         0.30 user         0.12 sys
+        0.44 real         0.30 user         0.12 sys
+```
+
 ### **Editor**
    
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/vim/vim?label=Vim)](https://github.com/vim/vim)
