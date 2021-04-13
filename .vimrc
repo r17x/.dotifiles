@@ -101,7 +101,7 @@ Plug 'benmills/vimux'
 " Log my activity to personal `wakatime`
 Plug 'wakatime/vim-wakatime'
 " Discord Integration 
-Plug 'ananagame/vimsence'
+Plug 'vimsence/vimsence'
 " Mustache lang
 Plug 'juvenn/mustache.vim'
 " Markdown / Writting
