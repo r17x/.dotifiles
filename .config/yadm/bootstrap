@@ -34,14 +34,25 @@ wantTo () {
 }
 ### Tools ###
 bootstrap_essentials () {
-  local deps="bat tmux pypy3"
+  local deps="bat tmux neofetch ripgrep fzf"
 
   isMachine "linux" && \
     sudo pacman -Sy $deps
 
-  isMachine "darwin" && \
-    brew install $deps "coreutils pinentry-mac" && \
-    brew install --cask iterm2
+  isMachine "darwin" && {
+    brew tap homebrew/cask
+    brew tap homebrew/cask-fonts
+    brew install \
+      $deps \
+      coreutils \
+      pinentry-mac \
+      iterm2 \
+      authy \
+      discord \
+      slack \
+      font-fira-code-nerd-font \
+      font-jetbrains-mono-nerd-font
+  }
 }
 bootstrap_VIM () {
   if command -v vim >/dev/null 2>&1; then
