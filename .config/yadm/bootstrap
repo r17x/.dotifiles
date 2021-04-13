@@ -40,7 +40,7 @@ bootstrap_essentials () {
     sudo pacman -Sy $deps
 
   isMachine "darwin" && \
-    brew install $deps "coreutils" && \
+    brew install $deps "coreutils pinentry-mac" && \
     brew install --cask iterm2
 }
 bootstrap_VIM () {
