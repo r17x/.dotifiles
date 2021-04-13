@@ -61,7 +61,7 @@ bootstrap_AUR () {
 bootstrap_Homebrew () {
   if ! command -v brew >/dev/null 2>&1; then
     echo "Installing homebrew"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash
   fi
 
   if [ -f "$HOME/.Brewfile" ]; then
