@@ -69,8 +69,10 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
-            "font" : ".SFNSText 12",
-            "algorithm" : 1
+            "remove empty components" : false,
+            "font" : "Menlo-Regular 11",
+            "algorithm" : 1,
+            "auto-rainbow style" : 0
           }
         }
       },
@@ -84,8 +86,10 @@
             "maxwidth" : 1.7976931348623157e+308
           },
           "layout advanced configuration dictionary value" : {
-            "font" : ".SFNSText 12",
-            "algorithm" : 1
+            "remove empty components" : false,
+            "font" : "Menlo-Regular 11",
+            "algorithm" : 1,
+            "auto-rainbow style" : 0
           }
         }
       },
@@ -100,8 +104,10 @@
             "maxwidth" : 1.7976931348623157e+308
           },
           "layout advanced configuration dictionary value" : {
-            "font" : ".SFNSText 12",
-            "algorithm" : 1
+            "remove empty components" : false,
+            "font" : "Menlo-Regular 11",
+            "algorithm" : 1,
+            "auto-rainbow style" : 0
           }
         }
       },
@@ -113,54 +119,34 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
-            "font" : ".SFNSText 12",
-            "algorithm" : 1
+            "remove empty components" : false,
+            "font" : "Menlo-Regular 11",
+            "algorithm" : 1,
+            "auto-rainbow style" : 0
           }
         }
       },
       {
-        "class" : "iTermStatusBarClockComponent",
+        "class" : "iTermStatusBarCPUUtilizationComponent",
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
-            "format" : "M\/dd h:mm",
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
-            "font" : ".SFNSText 12",
-            "algorithm" : 1
-          }
-        }
-      },
-      {
-        "class" : "iTermStatusBarActionComponent",
-        "configuration" : {
-          "knobs" : {
-            "action" : {
-              "title" : "Browser",
-              "action" : 60,
-              "parameter" : "browser"
-            },
-            "shared text color" : {
-              "Red Component" : 0.046759180258959546,
-              "Color Space" : "sRGB",
-              "Blue Component" : 0.609832763671875,
-              "Alpha Component" : 1,
-              "Green Component" : 0.35908905855831108
-            },
-            "minwidth" : 30,
-            "maxwidth" : 1.7976931348623157e+308
-          },
-          "layout advanced configuration dictionary value" : {
-            "font" : ".SFNSText 12",
-            "algorithm" : 1
+            "remove empty components" : false,
+            "font" : "Menlo-Regular 11",
+            "algorithm" : 1,
+            "auto-rainbow style" : 0
           }
         }
       }
     ],
     "advanced configuration" : {
-      "font" : ".SFNSText 12",
-      "algorithm" : 1
+      "remove empty components" : false,
+      "font" : "Menlo-Regular 11",
+      "algorithm" : 1,
+      "auto-rainbow style" : 0
     }
   },
   "Flashing Bell" : false,
@@ -454,8 +440,8 @@
     "Green Component" : 0.1734282374382019
   },
   "Blur" : false,
-  "Normal Font" : "HackNerdFontComplete-Regular 11",
   "Vertical Spacing" : 1,
+  "Normal Font" : "FiraCodeNerdFontCompleteM-Regular 11",
   "Ansi 7 Color" : {
     "Red Component" : 0.67070978879928589,
     "Color Space" : "sRGB",
@@ -506,12 +492,12 @@
   "Columns" : 80,
   "Visual Bell" : true,
   "Custom Directory" : "No",
-  "ASCII Ligatures" : false,
   "Ansi 5 Color" : {
     "Red Component" : 0.78114920854568481,
     "Color Space" : "sRGB",
     "Blue Component" : 0.87712705135345459,
     "Alpha Component" : 1,
     "Green Component" : 0.45849359035491943
-  }
+  },
+  "ASCII Ligatures" : true
 }
