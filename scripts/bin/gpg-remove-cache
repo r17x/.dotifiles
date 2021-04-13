@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm ~/.gnupg/S.*                    # remove cache
+gpg-connect-agent reloadagent /bye # restart gpg agent
+export GPG_TTY=$(tty)              # prompt for password

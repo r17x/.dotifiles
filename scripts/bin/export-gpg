@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -f $1.{pub,sec}
+gpg --output $1.pub --export $1
+gpg --export-secret-key $1 | paperkey --output $1.sec
