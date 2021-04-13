@@ -1,2 +1,3 @@
 Documents/*
 .rogu/gcs-key.json
+.ssh/id_rsa*

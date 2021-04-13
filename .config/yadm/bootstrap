@@ -44,6 +44,8 @@ bootstrap_essentials () {
     brew tap homebrew/cask-fonts
     brew install \
       $deps \
+      gpg \
+      nvim \
       coreutils \
       pinentry-mac \
       iterm2 \
