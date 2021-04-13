@@ -1,4 +1,8 @@
 #!/bin/bash
 
 gpgconf --kill gpg-agent
-gpg-agent --homedir "${GNUPGHOME:-$HOME/.gnupg}" --daemon
+killall gpg-agent
+gpg-agent --homedir "${GNUPGHOME:-$HOME/.gnupg}" \
+  --daemon \
+  --use-standard-socket \
+  --pinentry-program $(where pinentry-mac | head -1)
