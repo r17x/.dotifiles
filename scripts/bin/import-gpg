@@ -1,6 +1,6 @@
 #!/bin/bash
 
 test paperkey \
-  && test -f "$1.pub" \
-  && test -f "$1.sec" \
-  && paperkey --pubring $1.pub --secrets $1.sec | gpg --batch --import
+  && test -f $(pwd)/"$1.pub" \
+  && test -f $(pwd)/"$1.sec" \
+  && paperkey --pubring $(pwd)/$1.pub --secrets $(pwd)/$1.sec | gpg --batch --import
