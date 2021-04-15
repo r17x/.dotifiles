@@ -49,16 +49,6 @@ source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 
 (( ${+_comps} )) && _comps[zinit]=_zinit
-# read https://github.com/sorin-ionescu/prezto/blob/b01f02aa5c6714430647a4ee854149e9a336270a/modules/completion/init.zsh#L31-L41 
-autoload -Uz compinit
-_comp_files=(${ZDOTDIR:-$HOME}/.zcompdump(Nm-20))
-if (( $#_comp_files )); then
-  compinit -i -C
-else
-  compinit -i
-fi
-unset _comp_files
-
 ### End of Zinit installer's chunk
 
 
@@ -86,11 +76,11 @@ zt for \
 ###########
 
 zt light-mode compile'*handler' for \
-   zinit-zsh/z-a-rust \
    zinit-zsh/z-a-as-monitor \
    zinit-zsh/z-a-patch-dl \
    zinit-zsh/z-a-bin-gem-node \
-   zinit-zsh/z-a-submods
+   zinit-zsh/z-a-submods \
+   zinit-zsh/z-a-test
 
 # Plugins
 zt for \
@@ -100,7 +90,8 @@ zt for \
     dominik-schwabe/zsh-fnm \
     Aloxaf/fzf-tab \
     g-plane/icd \
-    ri7nz/zsh-yarn
+    ri7nz/zsh-yarn \
+    ~/evl/zsh-android
 
 ######################
 # Trigger-load block #
@@ -152,13 +143,15 @@ zt 0c light-mode pick'/dev/null' for \
 
 zt 0c light-mode as'null' for \
     sbin"bin/git-dsf;bin/diff-so-fancy" \
-        zdharma/zsh-diff-so-fancy \
+      zdharma/zsh-diff-so-fancy \
     sbin \
-        paulirish/git-open \
+      paulirish/git-open \
 
 zct light-mode from'gh-r' for \
     as'program' sei40kr/fast-alias-tips-bin \
-    sei40kr/zsh-fast-alias-tips
+    sei40kr/zsh-fast-alias-tips \
+    zdharma/zui \
+    zdharma/zplugin-crasis
     
 typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     taskwarrior
@@ -215,9 +208,36 @@ export FZF_DEFAULT_OPTS="
 #       -print 2> /dev/null | fzf +m) &&
 #  cd "$dir"
 # }
+# glab completion
+command -v glab &>/dev/null && eval "$(glab completion -s zsh)"
+# read https://github.com/sorin-ionescu/prezto/blob/b01f02aa5c6714430647a4ee854149e9a336270a/modules/completion/init.zsh#L31-L41 
+autoload -Uz compinit
+_comp_files=(${ZDOTDIR:-$HOME}/.zcompdump(Nm-20))
+if (( $#_comp_files )); then
+  compinit -i -C
+else
+  compinit -i
+fi
+unset _comp_files
+
+#  ctrl-z for foreground / suspend current job
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 
 #### LOG ####
 export NVIM_COC_LOG_FILE="$HOME/log/nvim.coc.log"
 export NVIM_PYTHON_LOG_FILE="$HOME/log/nvim.python.log"
 export XDG_RUNTIME_DIR="$HOME/log/xdg"
 #### LOG ####
+
+

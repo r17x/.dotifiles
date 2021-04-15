@@ -27,32 +27,11 @@ export ctags=/usr/local/bin/ctags
 [ -f ~/.fzf.zsh ] \
     && source ~/.fzf.zsh
 
-{% include ".config/zsh/zshrc.zsh" %}
-
 {% include ".config/zsh/{{ yadm.os }}.zsh" %}
-
+{% include ".config/zsh/zshrc.zsh" %}
 {% include ".aliases" %}
 
 # golang
 export GOPATH=$HOME/go
-export GOROOT=/usr/local/opt/go/libexec
+export GOROOT=$(brew --prefix)/opt/go/libexec
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
-
-### PERL
-PATH="${HOME}/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="${HOME}/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="${HOME}/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"${HOME}/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"; export PERL_MM_OPT;
-
-fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line
-  else
-    zle push-input
-    zle clear-screen
-  fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
