@@ -68,8 +68,10 @@ noremap <Leader>gll :Glog<CR>
 noremap <Leader>gfa :Git fetch --all<CR>
 " Type {<Space> + gs} for showing Git Status
 noremap <Leader>gs :Gstatus<CR>
-" Type {<Space> + gps} for executed Git Push 
-noremap <Leader>gps :Gpush<CR>
+" Type {<Space> + gps} for executed Git Push  origin <current branch>
+noremap <Leader>gps :Dispatch git push origin $(git rev-parse --abbrev-ref HEAD)<CR>
+" Type {<Space> + gpsf} same as {gps} but force 
+noremap <Leader>gpsf :Dispatch git push origin $(git rev-parse --abbrev-ref HEAD) --force<CR>
 " Type {<Space> + gpl} for executed Git Pull
 noremap <Leader>gpl :Gpull<CR>
 " Type {<Space> + gw} for Git Add/Write
