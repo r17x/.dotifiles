@@ -4,5 +4,4 @@ gpgconf --kill gpg-agent
 killall gpg-agent
 gpg-agent --homedir "${GNUPGHOME:-$HOME/.gnupg}" \
   --daemon \
-  --use-standard-socket \
-  --pinentry-program $(where pinentry-mac | head -1)
+  --pinentry-program "$(brew --prefix)/bin/pinentry-mac"
