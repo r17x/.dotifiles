@@ -71,7 +71,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 "
 "" Remap keys for gotos
-nmap <silent> gd :call CocAction('jumpDefinition','vsplit')<CR>
+nmap <silent> gd :call CocActionAsync('jumpDefinition','vsplit')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -83,12 +83,12 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionAsync('doHover')
   endif
 endfunction
 "
 "" Highlight symbol under cursor on CursorHold
-"autocmd CursorHold * silent call CocActionAsync('highlight')
+"autocmd CursorHold * silent call CocActionAsyncAsync('highlight')
 "
 "" Remap for rename current word
 " xmap <leader>rn <Plug>(coc-rename)
@@ -101,9 +101,9 @@ nmap <leader>f  <Plug>(coc-format-selected)
 "augroup mygroup
 "  autocmd!
 "  " Setup formatexpr specified filetype(s).
-"  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+"  autocmd FileType typescript,json setl formatexpr=CocActionAsync('formatSelected')
 "  " Update signature help on jump placeholder
-"  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+"  autocmd User CocJumpPlaceholder call CocActionAsyncAsync('showSignatureHelp')
 "augroup end
 "
 "" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
@@ -126,13 +126,13 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 "xmap <silent> <C-d> <Plug>(coc-range-select)
 "
 "" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call CocActionAsync('format')
 "
 "" Use `:Fold` to fold current buffer
-"command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+"command! -nargs=? Fold :call     CocActionAsync('fold', <f-args>)
 "
 "" use `:OR` for organize import of current buffer
-"command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+"command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 "
 "" Add status line support, for integration with other plugin, checkout `:h coc-status`
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
