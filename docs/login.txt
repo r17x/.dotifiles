@@ -1,0 +1,5 @@
+@startuml:
+
+Rin -> (web/app):login (with/out OTP or 2FA)
+
+@enduml
