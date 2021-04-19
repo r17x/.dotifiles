@@ -19,6 +19,8 @@ My personal setup `dotfiles`
 * [Motivasi](#motivasi)
 * [Alat Pengembang](#alat-pengembang)
   * [Umum](#umum)
+  * [Package Manager](#package-manager)
+    * [Homebrew (OSX)](#homebrew-osx)
   * [Kredensial](#kredensial)
   * [**Terminal**](#terminal)
     * [**Shell (ZSH)**](#shell-zsh)
@@ -33,6 +35,8 @@ My personal setup `dotfiles`
 `(DRY) - Don't repeat yourself` sebuah prinsip dalam pengembangan perangkat lunak (software development). Prinsip tersebut harusnya kita gunakan untuk mengurangi pekerjaan yang berulang-ulang dan menghabiskan waktu. Secara pribadi saya hanya mencoba menerapkan prinsip tersebut dalam bekerja. Contoh paling dasar yakni membuat `dotfiles` ini, yah gunannya agar saya tak perlu menyediakan kebutuhan perangkat atau alat yang digunakan dalam sehari - hari. Maka, dari [motivasi](#motivasi) ini kamu dapat melihat tujuan utamanya (Goal).
    
 Pekerjaan seorang pengembang perangkat lunak, perekayasa perangkat lunak, atau buruh perangkat lunak membutuhkan alat yang digunakan diatas sebuah sistem yang berjalan (biasanya kita sebut sistem operasi atau `OS`). Saya familiar dalam menggunakan sistem operasi seperti `OSX` yang berbasis `Darwin/unix` besutan si buah apple dan `ArchLinux` yang berbasis `Linux`. Yah tujuan saya untuk menjadi seorang ~~manusia~~ pengguna yang agnostik (tidak ~~beragama~~ terikat pada sebuah sistem tetapi tetap setia kepada ~~pencipta~~ pengguna, kecuali sistem operasi buatan Mikocok). Alat - alat tersebut dikumpulkan dalam satu tempat untuk menyimpan segala hal mengenai alat - alat, konfigurasi, pengaturan, kredensial, dan lain - lain yang menunjang kebutuhan bekerja atau sekedar mengoperasikan komputer. Wadah saya dimana ? di [github ini](https://github.com/ri7nz/.dotifiles), maka kita memerlukan **_git_** atau alat lain, yang jelas kita tetap sinkron diantara setiap mesin yang kita gunakan sehingga kita tidak melakukan hal yang berulang-ulang.
+
+> Inti: dengan adanya dotfiles kita mengurangi waktu (setup) atau menyiapkan kebutuhan sebelum kita bekerja pada mesin baru atau yang sudah kita gunakan
 
 > referensi [Dotfiles](https://wiki.archlinux.org/index.php/Dotfiles#User_repositories) dari [ArchWiki](https://wiki.archlinux.org)
 
@@ -57,6 +61,21 @@ Alat - alat yang saya gunakan seperti apa, berikut:
 | Browser             | Chrome        | ✅    | ✅     |
 |                     | Firefox       | ✅    | ✅     |
 |                     | Safari        | ✅    | ❌     |
+
+### Package Manager
+
+#### Homebrew (OSX)
+Homebrew merupakan paket menejer yang digunakan pada sistem operasi (OXS). Ketika saya menggunakan perangkat Macbook maka `Homebrew` yang bakalan jadi teman setia. 
+Berikut perintah yang sering saya gunakan untuk `dump` setiap paket yang sudah saya pasang pada perangkat yang saya gunakan
+```shell
+
+# backup
+❯ brew bundle dump --file=~/.Brewfile
+
+# restore / install
+❯ brew bundle --file=~/.Brewfile
+
+```
 
 ### Kredensial 
 > kenapa harus plain-text kalau bisa otomatis  
