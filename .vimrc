@@ -2,11 +2,31 @@ set encoding=utf8
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug: auto install or self manage of vim-plug
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+"""
+" @usage
+" call s:InitPluginManager()
+" @return {string} plugged path
+"
+" autoload vim-plug 
+"""
+func! s:InitPluginManager()
+  if has('nvim')
+    let l:vim_plug_file = stdpath('data') . '/site/autoload/plug.vim'
+  else
+    let l:vim_plug_file = '~/.vim/autoload/plug.vim'
+  endif
+  " when vim-plug aka {plug.vim} NOT exist in autoload path
+  " download file from {https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim}
+  if empty(glob(vim_plug_file))
+      echo "installing vim-plug..."
+      let l:vim_plug_raw = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      silent! execute "!curl -fLo " .vim_plug_file. " --create-dirs " . vim_plug_raw
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+      echo "vim-plug installed!"
+  endif
+endfunc
+" call InitPluginManager only for this file
+call s:InitPluginManager()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim plugins list
 " 
@@ -24,6 +44,8 @@ call plug#begin('~/.vim/plugged')
 " vim mysecretmessage.gpg 
 " ```
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LSP
+Plug 'neovim/nvim-lspconfig'
 Plug 'jamessan/vim-gnupg'
 " commentary
 " gcc to comment out a line (takes a count)
@@ -73,6 +95,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " powered by fzf for writing
 Plug 'alok/notational-fzf-vim'
+" ALT NERDTreeToggle
+" Plug 'lambdalisue/fern.vim'
 " NERDTreeToggle 
 Plug 'preservim/nerdtree' 
 " nerdtree for git ignore
@@ -107,10 +131,11 @@ Plug 'juvenn/mustache.vim'
 " Markdown / Writting
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'reedes/vim-pencil'
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
-Plug 'JamshedVesuna/vim-markdown-preview'
+" Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " Focus
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
