@@ -18,32 +18,46 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 " Type {<Space> + n} for open zsh configuration
-nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader><Tab> :NERDTreeToggle<CR>
 " Type {<Space> + m} for open zsh configuration
-nnoremap <Leader>m :TagbarToggle<CR>
+nnoremap <Leader>tag :TagbarToggle<CR>
 " Enter visual line mode with {<Space><Space>}
 nmap <Leader><Leader> V
+" Type {<Space> + v} for open new
+nnoremap <Leader>v :vnew<CR> 
+" Type {<Space> + vs} for open new split current
+nnoremap <Leader>vs :vsp<CR> 
+" Type {<Space> + ns} for open new split current
+nnoremap <Leader>ns :sp<CR> 
+" Type {<Space> + n} for open new split
+nnoremap <Leader>n :new<CR> 
 " Type {<Space> + o} for search file content (FZF)
 nnoremap <Leader>o :Files<CR> 
 " Type {<Space> + O} for search file content with RipGrep (FZF)
 nnoremap <Leader>O :Rg<CR>
-" Type {<Space> + q} for writing and quit current file
-nnoremap <Leader>q :wq<CR>
+" Type {<Space> + wq} for writing and quit current file
+nnoremap <Leader>wq :wq<CR>
+" Type {<Space> + q} quit current file
+nnoremap <Leader>q :q<CR>
 " Type {<Space> + w} for writing current file
 nnoremap <Leader>w :w<CR>
 " Type {<Space> + f} for formatting current file when
 " language server was integrated
 nnoremap <Leader>f :Format<CR> 
 " Type {<Space> + sc} for source current file
-nnoremap <Leader>rc :source %<CR>
+nnoremap <Leader>sc :source %<CR>
 " Type {<Space> + rc} for reload vim configuration
 nnoremap <Leader>rc :source $MYVIMRC<CR>
 " Type {<Space> + oc} for open vim configuration
-nnoremap <Leader>oc :vnew ~/.vimrc<CR>
+nnoremap <Leader>oc :tabnew ~/.vimrc<CR>
+" Type {<Space> + coc} for open coc settings.json
+nnoremap <Leader>coc :tabnew ~/.vim/coc-settings.json<CR>
 " Type {<Space> + oz} for open zsh configuration
-nnoremap <Leader>oz :vnew ~/.zshrc<CR>
+nnoremap <Leader>oz :tabnew ~/.zshrc<CR>
 " Type {<Space> + om} for open zsh configuration
 nnoremap <Leader>om :vnew ~/.vim/vimrc.d/__99mappin9.vim<CR>
+" Type {<Space> + on} for open zsh configuration
+nnoremap <Leader>on :tabnew ~/.config/nvim/init.vim<CR>
 " Type {<Space> + oz} for open zsh configuration template
 nnoremap <Leader>ozt :vnew ~/.zshrc\#\#template<CR>
 " Type {<Space> + pi} for execute plug install
@@ -82,12 +96,16 @@ noremap <Leader>gcm :Gcommit<CR>
 noremap <Leader>gmt :Git mergetool<CR>
 " Type {<Space> + gnc} for git next conflicted (vim-conflicted)
 noremap <Leader>gnc :GitNextConflict<CR>
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-endif
+" Type {<Space> + mdv} for markdown preview.
+noremap <Leader>mdv :MarkdownPreviewToggle<CR>
+" Type {<Space> + mdv} for markdown preview.
+noremap <Leader>mdt :GenTocGFM<CR>
+" Type {<Space> + idt} Indent Line Toggle
+noremap <Leader>idt :IndentBlanklineToggleAll<CR>
+" Type {<Space> + fc} focus
+noremap <Leader>fc :Goyo<CR>
+" Type {<Space> + cf} unfocus
+noremap <Leader>cf :Goyo!<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Mac User Map HJKL
 imap ˙ <Left>
@@ -157,8 +175,22 @@ function! s:Repl()
   return "p@=RestoreRegister()\<cr>"
 endfunction
 vmap <silent> <expr> p <sid>Repl()
+
 " Type 12<Enter> to go to line 12
 " Hit Enter to go to end of file.
 " Hit Backspace to go to beginning of file.
 nnoremap <CR> G
 nnoremap <BS> gg
+" mapping in inser and normal mode
+" inoremap <silent> <C-T> <Esc>:NERDTreeToggle<CR>
+" nnoremap <silent> <C-T> <Esc>:NERDTreeToggle<CR>
+
+
+
+
+" inoremap <nowait> <A-j> <Esc>:m .+1<CR>==gi
+" inoremap <nowait> <A-k> <Esc>:m .-2<CR>==gi
+" nnoremap <nowait> <A-j> :m .+1<CR>==
+" nnoremap <nowait> <A-k> :m .-2<CR>==
+" vnoremap <nowait> <A-j> :m '>+1<CR>gv=gv
+" vnoremap <nowait> <A-k> :m '<-2<CR>gv=gv

@@ -135,7 +135,7 @@ command! -nargs=0 Format :call CocActionAsync('format')
 "command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 "
 "" Add status line support, for integration with other plugin, checkout `:h coc-status`
-"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "
 "" Using CocList
 "" Show all diagnostics
@@ -172,3 +172,9 @@ nmap <leader>cl <Plug>(coc-codelens-action)
 
 " Fix autofix problem of current line	" Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)	nmap <leader>qf <Plug>(coc-fix-current)
+
+" Hooking up the ReScript autocomplete function
+set omnifunc=rescript#Complete
+" When preview is enabled, omnicomplete will display additional
+" information for a selected item
+set completeopt+=preview

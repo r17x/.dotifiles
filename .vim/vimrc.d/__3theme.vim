@@ -49,4 +49,8 @@ let g:lightline = {
 if (has("termguicolors"))
   set termguicolors
 endif
+
 silent! colorscheme edge
+
+let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_ = '·'
