@@ -60,6 +60,7 @@ if !empty(glob("/usr/bin/pypy3"))
     " uncomment when stable pypy3 in big surp
     " let g:python3_host_prog = "/usr/bin/pypy3" "
 endif
+Plug 'kristijanhusak/vim-carbon-now-sh'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " syntax highlight for "all" language
 Plug 'sheerun/vim-polyglot' 
@@ -115,6 +116,8 @@ Plug 'juvenn/mustache.vim'
 " * focus: goyo
 " * focus: limelight
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'vimwiki/vimwiki'
+Plug 'jeffmm/vim-roam'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'reedes/vim-pencil'
 Plug 'plasticboy/vim-markdown'
@@ -122,7 +125,7 @@ Plug 'jtratner/vim-flavored-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'itchyny/lightline.vim'
@@ -135,7 +138,7 @@ Plug 'xolox/vim-session'
 " * edge
 " * vim-devicons (emoji and icon support)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'ri7nz/vim-one'
+" Plug 'ri7nz/vim-one'
 Plug 'sainnhe/edge'
 Plug 'ryanoasis/vim-devicons'
 " OpenAPI
@@ -151,7 +154,7 @@ Plug 'jparise/vim-graphql'
 Plug 'rescript-lang/vim-rescript'
 Plug 'arp242/startscreen.vim'
 " Map popup
-Plug 'liuchengxu/vim-which-key'
+Plug 'liuchengxu/vim-which-key',  { 'on': ['WhichKey', 'WhichKey!'] }
 call plug#end()
 
 function! BringMeTheVIM()
@@ -163,11 +166,6 @@ function! BringMeTheVIM()
 endfun
 
 let g:Startscreen_function = function('BringMeTheVIM')
-let g:nv_search_paths = [
-   \'~/wikis', 
-   \'README.md' , 
-   \'~/evl/rin.rocks/content'
-\]
 
 " source vim configuration from ~/.vim/vimrc.d/
 for f in split(glob('~/.vim/vimrc.d/*.vim'), '\n')
@@ -182,3 +180,8 @@ if has('nvim')
   set runtimepath^=~/.config/nvim runtimepath+=~/.config/nvim/after
   let &packpath = &runtimepath
 endif
+
+
+let g:vimwiki_list = [{'path': '~/wikis/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+

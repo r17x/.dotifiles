@@ -17,6 +17,10 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
+vmap <Leader>cn :CarbonNowSh<CR>
+nnoremap <Leader>bb :RescriptBuild<CR>
+nnoremap <Leader>bc :RescriptCleanWorld<CR>
+nnoremap <Leader>pp :Prettier<CR>
 " Type {<Space> + n} for open zsh configuration
 nnoremap <Leader><Tab> :NERDTreeToggle<CR>
 " Type {<Space> + m} for open zsh configuration
@@ -194,3 +198,22 @@ nnoremap <BS> gg
 " nnoremap <nowait> <A-k> :m .-2<CR>==
 " vnoremap <nowait> <A-j> :m '>+1<CR>gv=gv
 " vnoremap <nowait> <A-k> :m '<-2<CR>gv=gv
+
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+    else
+        let s:hidden_all = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+    endif
+endfunction
+" use {Shift + H}
+nnoremap <S-h> :call ToggleHiddenAll()<CR>

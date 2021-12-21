@@ -40,7 +40,7 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 " colorizer
 let g:colorizer_auto_filetype='css,html,js,jsx,json,yml,md,mdx,tsx,ts,less,scss'
 let g:colorizer_colornames = 1
-au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx,  :ColorHighlight!
+" au BufNewFile,BufRead *.css,*.html,*.htm,*.js,*.jsx,  :ColorHighlight!
 let g:lightline = {
     \ 'colorscheme': 'edge'
     \}

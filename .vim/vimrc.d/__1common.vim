@@ -61,3 +61,6 @@ set foldmethod=syntax
 set backupdir=.backup/,~/.backup/,/tmp//
 set directory=.swp/,~/.swp/,/tmp//
 set undodir=.undo/,~/.undo/,/tmp//
+
+set nocompatible
+filetype plugin on
