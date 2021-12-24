@@ -20,7 +20,7 @@ isMachine () {
   return 1;
 }
 ### Machine portable detect ###
-
+TERM=screen-256color
 if isMachine "linux"; then
 # If not running interactively, don't do anything
     [[ $- != *i* ]] && return
@@ -29,6 +29,7 @@ if isMachine "linux"; then
     
     
     if [ "$TERM" = "xterm" ]; then
+        echo "XXX"
         export TERM=xterm-256color
     fi 
 fi
@@ -36,3 +37,6 @@ fi
 export GPG_TTY=$(tty) 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+if [ -e /Users/r17/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/r17/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
