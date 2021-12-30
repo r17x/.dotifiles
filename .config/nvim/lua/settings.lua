@@ -1,10 +1,10 @@
-local fun = require('fun')
 local fn = vim.fn
 local Settings = {}
 
 local indent = 2
 
 Settings.options = {
+  encoding = "utf8",
   termguicolors = true,
   backspace = {"indent", "eol", "start"},
   cursorline = false,
@@ -25,33 +25,36 @@ Settings.g_options = {
   -- theme
   elite_mode = 1,
   edge_style = 'neon',
+  -- wikis
+  vimwiki_list = {
+    { path = '~/wikis/', syntax = 'markdown', ext = '.md' }
+  },
   -- tree
-  nvim_tree_side = 'left',
-  
-  nvim_tree_indent_markers = 1,
-  nvim_tree_width_allow_resize = 1,
-  nvim_tree_git_hl = 1,
-  nvim_tree_width = 20,
-  filters = {
-    dotfiles = 1,
-    ignore = { '__pycache__', '.git', 'node_modules', '.cache' }
-  },
-  
-  nvim_tree_icons = {
-     git = {
-       unstaged = "✗",
-       staged = "✓",
-       unmerged = "x",
-       renamed = "➜",
-       untracked = "★"
-     },
-  },
-  
-  nvim_tree_show_icons = {
-     git = 1,
-     folders = 0,
-     files = 0,
-  },
+  -- nvim_tree_side = 'left',
+  -- nvim_tree_indent_markers = 1,
+  -- nvim_tree_width_allow_resize = 1,
+  -- nvim_tree_git_hl = 1,
+  -- nvim_tree_width = 20,
+  -- filters = {
+  --   dotfiles = 1,
+  --   ignore = { '__pycache__', '.git', 'node_modules', '.cache' }
+  -- },
+
+  -- nvim_tree_icons = {
+  --    git = {
+  --      unstaged = "✗",
+  --      staged = "✓",
+  --      unmerged = "x",
+  --      renamed = "➜",
+  --      untracked = "★"
+  --    },
+  -- },
+
+  -- nvim_tree_show_icons = {
+  --    git = 1,
+  --    folders = 0,
+  --    files = 0,
+  -- },
 
 }
 
@@ -70,8 +73,6 @@ Settings.mappings = {
     ['<Leader>d'] = '"+d',
     ['<Leader>p'] = '"+p',
     ['<Leader>P'] = '"+P',
-    ['<Leader>p'] = '"+p',
-    ['<Leader>P'] = '"+P'
   },
 
   nnoremap = {
@@ -79,7 +80,8 @@ Settings.mappings = {
     ["<Leader>ff"] = "<cmd>lua require('telescope.builtin').find_files()<cr>",
     ["<Leader>fg"] = "<cmd>lua require('telescope.builtin').live_grep()<cr>",
     ["<Leader>fb"] = "<cmd>lua require('telescope.builtin').buffers()<cr>",
-    ["<Leader>fh"] = "<cmd>lua require('telescope.builtin').help_tags()<cr>"
+    ["<Leader>fh"] = "<cmd>lua require('telescope.builtin').help_tags()<cr>",
+    ["<Leader>md"] = "<cmd>MarkdownPreviewToggle<cr>"
   },
 
   nmap = {
@@ -108,7 +110,7 @@ Settings.mappings = {
 if fn.exists(":tnoremap") then
   table.insert(
     Settings.cmd_options,
-    "tnoremap <Esc> <C-\\><C-n>"
+    [[tnoremap <Esc> <C-\\><C-n>]]
   )
 end
 
@@ -141,6 +143,5 @@ Settings.lualine = {
   tabline = {},
   extensions = {},
 }
-
 
 return Settings

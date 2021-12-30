@@ -6,7 +6,6 @@ local opt = vim.opt
 local cmd = vim.cmd
 local g = vim.g
 local utils = {}
-local Map = {}
 local fun = require('fun')
 
 -- thanks to
@@ -101,14 +100,14 @@ end
 
 function utils.apply_mappings(mappings)
   fun.each(
-    function(k, vs) 
+    function(k, vs)
       if k == "vmap" then
         fun.each(
           utils.vmap,
           vs
         )
       end
-      
+
       if k == "nnoremap" then
         fun.each(
           utils.nnoremap,
@@ -128,5 +127,19 @@ function utils.apply_mappings(mappings)
   )
 end
 
+function utils.apply_settings(settings)
+  -- apply "g" options
+  -- viml: let g:something = val
+  utils.apply_g(settings.g_options)
+  -- apply options
+  -- viml: set something
+  utils.apply_options(settings.options)
+  -- apply command
+  -- viml: something on
+  utils.apply_cmd(settings.cmd_options)
+  -- apply mappings
+  -- viml: nnoremap something value
+  utils.apply_mappings(settings.mappings)
+end
 
 return utils
