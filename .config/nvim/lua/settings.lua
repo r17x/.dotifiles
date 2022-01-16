@@ -1,9 +1,9 @@
 local fn = vim.fn
-local Settings = {}
+local M = {}
 
 local indent = 2
 
-Settings.options = {
+M.options = {
   encoding = "utf8",
   termguicolors = true,
   backspace = {"indent", "eol", "start"},
@@ -21,7 +21,7 @@ Settings.options = {
   compatible = false,
 }
 
-Settings.g_options = {
+M.g_options = {
   -- theme
   elite_mode = 1,
   edge_style = 'neon',
@@ -30,35 +30,81 @@ Settings.g_options = {
     { path = '~/wikis/', syntax = 'markdown', ext = '.md' }
   },
   -- tree
-  -- nvim_tree_side = 'left',
-  -- nvim_tree_indent_markers = 1,
-  -- nvim_tree_width_allow_resize = 1,
-  -- nvim_tree_git_hl = 1,
-  -- nvim_tree_width = 20,
-  -- filters = {
-  --   dotfiles = 1,
-  --   ignore = { '__pycache__', '.git', 'node_modules', '.cache' }
-  -- },
+  nvim_tree_side = 'left',
+  nvim_tree_indent_markers = 1,
+  nvim_tree_width_allow_resize = 1,
+  nvim_tree_git_hl = 1,
+  nvim_tree_width = 20,
+  filters = {
+    dotfiles = 1,
+    ignore = { '__pycache__', '.git', 'node_modules', '.cache' }
+  },
 
-  -- nvim_tree_icons = {
-  --    git = {
-  --      unstaged = "✗",
-  --      staged = "✓",
-  --      unmerged = "x",
-  --      renamed = "➜",
-  --      untracked = "★"
-  --    },
-  -- },
+  nvim_tree_icons = {
+     git = {
+       unstaged = "✗",
+       staged = "✓",
+       unmerged = "x",
+       renamed = "➜",
+       untracked = "★"
+     },
+  },
 
-  -- nvim_tree_show_icons = {
-  --    git = 1,
-  --    folders = 0,
-  --    files = 0,
-  -- },
+  nvim_tree_show_icons = {
+     git = 1,
+     folders = 1,
+     files = 1,
+  },
+  -- markdown preview
+  mkdp_browser = 'chrome',
+dashboard_disable_at_vimenter = 0,
+dashboard_disable_statusline = 1,
+dashboard_default_executive = "telescope",
+dashboard_custom_header = {
+-- functional
+---- programming
+----- forever
+"                ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░                ",
+"            ░░▒▓█▓▒▒▒▒▒▒▓▓██▓▓▓▒▒▒▒▓▓▒░              ",
+"          ░▒▓█▓▒▒▓█▓▓▓▓░░░▒███████▓▓▒▒█▓▒            ",
+"        ░▓██▓▒▒█████████▒░░░█████████▓▒▒██▓          ",
+"      ░▓███▓▒████████████░░░▒██████████▓░▓██▓        ",
+"     ▒████▒▓█████████████▓░░░▓███████████░▓███▒      ",
+"    ▒████▓▒███████████████░░░░████████████░████▒     ",
+"   ▒█████░███████████████▓░░░░▒███████████▒▒████▒    ",
+"  ░█████▓▒███████████████▒▓▓░░░▒██████████▓░█████░   ",
+" ░██████▓▒██████████████▒▓███░░░▓██████████░██████░  ",
+" ░██████▓░█████████████░▓████▓░░░▓████████▓░██████░  ",
+" ▒███████░▓███████████░▓██████▒░░░████████▒▓██████▒  ",
+" ▒███████▒▒█████████▓░▒████████░░░░██████▓▒███████▓  ",
+" ▒███████▒▒▒███████▓░▒██████████░░░░████▓░████████▒  ",
+" ░███████▓░▒▓█████▓░░███████████▓░░░░██▒░█████████░  ",
+" ░▓██████▓▒░░▒▒▓█▓░░█████████████▒░░▒▒░▒▓█████████░  ",
+"  ░███████▒▒░░░░░▒▓███████████████▒░░░▒▒█████████░   ",
+"  ░▒██████▒▒░░░▒▒▒▒▒▒▒▒▒▓█▓▓▓▓▓▓▒▒▒░░░▓▒████████▒    ",
+"   ░▒██████████████████▓░░░░███████████████████▒     ",
+"     ░████████▓▓▓▓░░░░░░▒░░░░░░░░░░▓▓▓████████░      ",
+"      ░▒████████▓▓▒░░░░░█▒▓░░░░░░░▒▓▓███████▒        ",
+"        ░▒█████████▓▒▒░░▓▒▓░░░▒▓██████████▒          ",
+"           ░▓███████▒▓▒▒░░░░░▒▓████████▓▒            ",
+"              ░▒▓████▓▓▒▒▓░▓▒▒█████▓▒░               ",
+"                      ▒▒▒▓▓▓▒▒                       "
+},
+
+dashboard_custom_section = {
+   a = { description = { "  Find File                 SPC f f" }, command = "Telescope find_files" },
+   b = { description = { "  Recents                   SPC f o" }, command = "Telescope oldfiles" },
+   c = { description = { "  Find Word                 SPC f w" }, command = "Telescope live_grep" },
+   d = { description = { "洛 New File                  SPC f n" }, command = "DashboardNewFile" },
+   e = { description = { "  Bookmarks                 SPC b m" }, command = "Telescope marks" },
+   f = { description = { "  Load Last Session         SPC l  " }, command = "SessionLoad" },
+},
+
+dashboard_custom_footer = {"   "}
 
 }
 
-Settings.cmd_options = {
+M.cmd_options = {
   "filetype plugin on",
   "syntax on",
   "silent! colorscheme edge",
@@ -66,7 +112,7 @@ Settings.cmd_options = {
   "let mapleader = ' '"
 }
 
-Settings.mappings = {
+M.mappings = {
   vmap = {
     -- Copy & paste to system clipboard with {<Space> + p} and {<Space> + y}
     ['<Leader>y'] = '"+y',
@@ -85,6 +131,7 @@ Settings.mappings = {
   },
 
   nmap = {
+    ["<C-n>"] = "<cmd>NvimTreeToggle<cr>",
     -- CTRL+[h,j,k,l] for movement buffer window
     -- Type {Ctrl+h} for navigated to left
     -- Type {Ctrl+j} for navigated to bottom
@@ -109,39 +156,9 @@ Settings.mappings = {
 
 if fn.exists(":tnoremap") then
   table.insert(
-    Settings.cmd_options,
+    M.cmd_options,
     [[tnoremap <Esc> <C-\\><C-n>]]
   )
 end
 
-Settings.lualine = {
-  options = {
-    theme = 'edge',
-    component_separators = '|',
-    section_separators = { left = '', right = '' },
-  },
-  sections = {
-    lualine_a = {
-      { 'mode', separator = { left = '' }, right_padding = 2 },
-    },
-    lualine_b = { 'filename', 'branch' },
-    lualine_c = { 'fileformat' },
-    lualine_x = {},
-    lualine_y = { 'filetype', 'progress' },
-    lualine_z = {
-      { 'location', separator = { right = '' }, left_padding = 2 },
-    },
-  },
-  inactive_sections = {
-    lualine_a = { 'filename' },
-    lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = { 'location' },
-  },
-  tabline = {},
-  extensions = {},
-}
-
-return Settings
+return M
