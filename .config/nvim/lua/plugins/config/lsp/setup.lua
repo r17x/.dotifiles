@@ -25,13 +25,23 @@ M.lsp = function(attach, capabilities)
    lsp_installer.on_server_ready(function(server)
       local settings = M.get_settings(server.name)
       local opts = {
-         on_attach = attach,
-         capabilities = capabilities,
-         flags = {
-            debounce_text_changes = 150,
-         },
-         settings = settings,
+          on_attach = attach,
+          capabilities = capabilities,
+          flags = {
+             debounce_text_changes = 150,
+          },
+          settings = settings,
       }
+
+      if server.name:match("eslint") then
+        opts = {
+          on_attach = function (client)
+            if client.resolved_capabilities.document_formatting then
+              vim.cmd [[ autocmd BufWritePre <buffer> <cmd>EslintFixAll<cr> ]]
+            end
+          end
+        }
+      end
 
       server:setup(opts)
 

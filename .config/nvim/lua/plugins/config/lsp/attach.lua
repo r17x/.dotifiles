@@ -5,6 +5,7 @@ return function(client, bufnr)
 
     -- Mappings
     local nnoremap = require('utils').nnoremap
+    nnoremap('ff', '<cmd>lua vim.lsp.buf.formatting()<cr>')
     nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
     nnoremap('gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
     nnoremap('K', '<cmd>lua vim.lsp.buf.hover()<cr>')

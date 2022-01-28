@@ -1,3 +1,7 @@
+<label align="center">
+  <img src="./dashboard.png" />
+</label>
+
 ## Configuration Structure 
 ```console
 .
@@ -15,7 +19,7 @@
 │   │   │   │   └── setup.lua
 │   │   │   ├── lualine.lua
 │   │   │   └── treesitter.lua
-│   │   ├── init.lua
+│   │   ├── init.lua    -- list plugins
 │   │   └── manager.lua -- bootstrap plugin manager (current use `packer`)
 │   ├── settings
 │   │   └── lsp  -- (Lsp settings depends on your language server)

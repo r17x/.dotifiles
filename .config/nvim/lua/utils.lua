@@ -68,19 +68,19 @@ M.termcodes=function(str)
   return api.nvim_replace_termcodes(str, true, true, true)
 end
 
-
+-- apply options aka vim.opt
 M.apply_options=function(options)
    fun.each( function(k,v) opt[k] = v end, options)
 end
-
+-- apply "cmd" vim
 M.apply_cmd=function(cmds)
     fun.each( function(v) cmd(v) end, cmds)
 end
-
+-- apply vim global options
 M.apply_g=function(gs)
     fun.each( function(k,v) g[k] = v end, gs)
 end
-
+-- apply mappings
 M.apply_mappings = function(mappings)
   fun.each(
     function(k, vs)
@@ -90,6 +90,14 @@ M.apply_mappings = function(mappings)
 
       if k == "nnoremap" then
         fun.each( M.nnoremap, vs)
+      end
+
+      if k == "xnoremap" then
+        fun.each( M.xnoremap, vs)
+      end
+
+      if k == "vnoremap" then
+        fun.each( M.vnoremap, vs)
       end
 
       if k == "nmap" then

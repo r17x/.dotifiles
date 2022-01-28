@@ -26,6 +26,11 @@ local fly = function(use)
   }
 
   use {
+    "reasonml-editor/vim-reason-plus",
+    ft = { "reason" }
+  }
+
+  use {
     'nkrkv/nvim-treesitter-rescript',
     run = ':TSInstall rescript',
     after = "nvim-treesitter"
@@ -42,7 +47,8 @@ local fly = function(use)
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
-    config = function() require 'nvim-tree'.setup() end,
+    setup = config_load 'plugins.setup.nvim-tree',
+    config = config_load 'plugins.config.nvim-tree',
     cmd = {
       "NvimTreeRefresh",
       "NvimTreeToggle"
@@ -90,25 +96,7 @@ local fly = function(use)
    use {
       "ray-x/lsp_signature.nvim",
       after = "nvim-lspconfig",
-      config = function ()
-       require "lsp_signature".setup {
-           bind = true,
-           doc_lines = 0,
-           floating_window = true,
-           fix_pos = true,
-           hint_enable = true,
-           hint_prefix = " ",
-           hint_scheme = "String",
-           hi_parameter = "Search",
-           max_height = 22,
-           max_width = 120, -- max_width of signature floating_window, line will be wrapped if exceed max_width
-           handler_opts = {
-              border = "single", -- double, single, shadow, none
-           },
-           zindex = 200, -- by default it will be on top of all floating windows, set to 50 send it to bottom
-           padding = "", -- character to pad on left and right of signature can be ' ', or '|'  etc
-        }
-      end
+      config = config_load 'plugins.config.lsp.signature'
    }
 
 
@@ -154,6 +142,18 @@ local fly = function(use)
     wants = "friendly-snippets"
   }
 
+  use {
+    "windwp/nvim-autopairs",
+    event = "VimEnter",
+    config = config_load "plugins.config.autopairs"
+  }
+
+  --- git integrations
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = config_load 'plugins.config.gitsigns'
+  }
+
   use { 'vimwiki/vimwiki', event = "VimEnter"}
 
   use {
@@ -174,18 +174,50 @@ local fly = function(use)
 
   use { 'junegunn/fzf.vim', after = "vim-roam"}
 
+    -- markdown toc
+  use {
+    'mzlogin/vim-markdown-toc',
+    cmd = {
+      'GenTocGFM'
+    }
+  }
+
   use {
     'iamcco/markdown-preview.nvim',
     run = function()
       vim.fn['mkdp#util#install']()
     end,
-    ft = { "markdown" }
+    ft = { "markdown" },
+    setup = config_load 'plugins.setup.mkdp'
+  }
+
+  use {
+    "nathom/filetype.nvim",
+    setup = config_load 'plugins.setup.filetype',
+    config = config_load 'plugins.config.filetype',
   }
 
   use {
     "glepnir/dashboard-nvim",
+    setup = config_load 'plugins.setup.dashboard'
   }
 
+  use {
+   'wakatime/vim-wakatime',
+   event = "BufRead"
+  }
+
+  use {
+   'lukas-reineke/indent-blankline.nvim',
+   event = "BufRead",
+   config = config_load 'plugins.config.blankline'
+  }
+
+  use {
+    'kristijanhusak/vim-carbon-now-sh',
+    cmd = {"CarbonNowSh"},
+    setup = function () require 'utils'.apply_mappings( { xnoremap = { ["<Leader>cc"] = "<cmd>CarbonNowSh<cr>" } }) end
+  }
 end
 
 return packer.startup(fly)
