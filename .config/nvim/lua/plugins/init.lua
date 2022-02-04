@@ -154,6 +154,11 @@ local fly = function(use)
     config = config_load 'plugins.config.gitsigns'
   }
 
+  use { 
+    "lambdalisue/gina.vim",
+    cmd = {"Gina"}
+  }
+
   use { 'vimwiki/vimwiki', event = "VimEnter"}
 
   use {
@@ -174,7 +179,24 @@ local fly = function(use)
 
   use { 'junegunn/fzf.vim', after = "vim-roam"}
 
-    -- markdown toc
+  --- WRITING
+  -- markdown toc
+  use {
+   'junegunn/goyo.vim',
+   cmd = {
+     "Goyo"
+   },
+   config = function ()
+    vim.cmd [[ autocmd! User GoyoEnter Limelight ]]
+    vim.cmd [[ autocmd! User GoyoLeave Limelight! ]]
+   end
+  }
+
+  use {
+    'junegunn/limelight.vim',
+    cmd = "Limelight"
+  }
+
   use {
     'mzlogin/vim-markdown-toc',
     cmd = {
@@ -187,9 +209,11 @@ local fly = function(use)
     run = function()
       vim.fn['mkdp#util#install']()
     end,
-    ft = { "markdown" },
+    ft = { "markdown", "vimwiki"},
     setup = config_load 'plugins.setup.mkdp'
   }
+
+  --- MISC
 
   use {
     "nathom/filetype.nvim",
