@@ -1,25 +1,28 @@
 local present, packer = pcall(require, "plugins.manager")
 
 if not present then
-   return false
+  return false
 end
 
 local config_load = function(...)
   local req = ""
-  for _, conf in ipairs({...}) do
-    req = ("").format("%s require('%s')",req, conf)
+  for _, conf in ipairs({ ... }) do
+    req = ("").format("%s require('%s')", req, conf)
   end
   return req
 end
 
 local fly = function(use)
+  -- packer nvim
   use { 'wbthomason/packer.nvim' }
+  -- codi is interactive REPL
+  use { 'metakirby5/codi.vim' }
   -- theme list
-  use {'sainnhe/edge'}
+  use { 'sainnhe/edge' }
 
   -- syntax highlight (treesitter)
   use {
-    'ri7nz/nvim-treesitter',
+    'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = config_load 'plugins.config.treesitter',
     event = "BufRead"
@@ -47,7 +50,6 @@ local fly = function(use)
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
-    setup = config_load 'plugins.setup.nvim-tree',
     config = config_load 'plugins.config.nvim-tree',
     cmd = {
       "NvimTreeRefresh",
@@ -58,13 +60,13 @@ local fly = function(use)
   use {
     'tpope/vim-dispatch',
     opt = true,
-    cmd = {'Dispatch', 'Make', 'Focus', 'Start'}
+    cmd = { 'Dispatch', 'Make', 'Focus', 'Start' }
   }
 
   use {
     'nvim-lualine/lualine.nvim',
     after = "nvim-web-devicons",
-    requires = {'kyazdani42/nvim-web-devicons'},
+    requires = { 'kyazdani42/nvim-web-devicons' },
     config = config_load 'plugins.config.lualine',
     event = 'BufRead'
   }
@@ -73,31 +75,39 @@ local fly = function(use)
     'nvim-telescope/telescope.nvim',
     requires = {
       'nvim-lua/popup.nvim',
-      'nvim-lua/plenary.nvim'
+      'nvim-lua/plenary.nvim',
+      "nvim-telescope/telescope-github.nvim",
     },
     module = 'telescope',
-    event = "VimEnter"
+    event = "VimEnter",
+    config = function()
+      require 'telescope'.load_extension 'src'
+      require 'telescope'.load_extension 'gh'
+    end
   }
+  -- nvim-debugger
+  use { 'mfussenegger/nvim-dap', after = "nvim-lspconfig" }
+
+  use { 'Pocco81/dap-buddy.nvim', after = "nvim-lspconfig" }
+
   -- lsp
   use {
-    'ri7nz/nvim-lsp-installer',
-    branch = "feat/add-reason-installer",
+    'williamboman/nvim-lsp-installer',
     run = ":LspInstall sumneko_lua rescriptls tsserver eslint",
     config = config_load("lspconfig", "plugins.config.lsp"),
     event = "BufRead"
   }
 
   use {
-    'ri7nz/nvim-lspconfig',
-    branch = 'add-reason',
+    'neovim/nvim-lspconfig',
     module = "lspconfig"
   }
 
-   use {
-      "ray-x/lsp_signature.nvim",
-      after = "nvim-lspconfig",
-      config = config_load 'plugins.config.lsp.signature'
-   }
+  use {
+    "ray-x/lsp_signature.nvim",
+    after = "nvim-lspconfig",
+    config = config_load 'plugins.config.lsp.signature'
+  }
 
 
   -- LSP Completion
@@ -109,6 +119,7 @@ local fly = function(use)
   use {
     'hrsh7th/nvim-cmp',
     after = "friendly-snippets",
+    ft = "norg",
     config = config_load 'plugins.config.lsp.cmp'
   }
 
@@ -154,47 +165,38 @@ local fly = function(use)
     config = config_load 'plugins.config.gitsigns'
   }
 
-  use { 
+  use {
     "lambdalisue/gina.vim",
-    cmd = {"Gina"}
+    cmd = { "Gina" }
   }
 
-  use { 'vimwiki/vimwiki', event = "VimEnter"}
+  -- use { 'vimwiki/vimwiki', event = "VimEnter"}
 
-  use {
-    'jeffmm/vim-roam',
-    cmd = {
-      "RoamSearchText",
-      "RoamSearchFiles",
-      "RoamSearchTags",
-      "RoamInbox",
-      "RoamNewNote"
-    }
-  }
+  -- use {
+  --   'jeffmm/vim-roam',
+  --   cmd = {
+  --     "RoamSearchText",
+  --     "RoamSearchFiles",
+  --     "RoamSearchTags",
+  --     "RoamInbox",
+  --     "RoamNewNote"
+  --   }
+  -- }
 
-  use {
-    'junegunn/fzf',
-    after = "vim-roam"
-  }
+  -- use {
+  --   'junegunn/fzf',
+  --   after = "vim-roam"
+  -- }
 
-  use { 'junegunn/fzf.vim', after = "vim-roam"}
+  -- use { 'junegunn/fzf.vim', after = "vim-roam"}
 
   --- WRITING
   -- markdown toc
   use {
-   'junegunn/goyo.vim',
-   cmd = {
-     "Goyo"
-   },
-   config = function ()
-    vim.cmd [[ autocmd! User GoyoEnter Limelight ]]
-    vim.cmd [[ autocmd! User GoyoLeave Limelight! ]]
-   end
-  }
-
-  use {
-    'junegunn/limelight.vim',
-    cmd = "Limelight"
+    "folke/zen-mode.nvim",
+    config = function()
+      require("zen-mode").setup {}
+    end
   }
 
   use {
@@ -206,11 +208,9 @@ local fly = function(use)
 
   use {
     'iamcco/markdown-preview.nvim',
-    run = function()
-      vim.fn['mkdp#util#install']()
-    end,
-    ft = { "markdown", "vimwiki"},
-    setup = config_load 'plugins.setup.mkdp'
+    ft = { "markdown", "vimwiki" },
+    run = function() vim.fn['mkdp#util#install']() end
+    -- setup = config_load 'plugins.setup.mkdp'
   }
 
   --- MISC
@@ -227,20 +227,46 @@ local fly = function(use)
   }
 
   use {
-   'wakatime/vim-wakatime',
-   event = "BufRead"
+    'wakatime/vim-wakatime',
+    event = "BufRead"
   }
 
   use {
-   'lukas-reineke/indent-blankline.nvim',
-   event = "BufRead",
-   config = config_load 'plugins.config.blankline'
+    'lukas-reineke/indent-blankline.nvim',
+    event = "BufRead",
+    config = config_load 'plugins.config.blankline'
   }
 
   use {
     'kristijanhusak/vim-carbon-now-sh',
-    cmd = {"CarbonNowSh"},
-    setup = function () require 'utils'.apply_mappings( { xnoremap = { ["<Leader>cc"] = "<cmd>CarbonNowSh<cr>" } }) end
+    cmd = { "CarbonNowSh" },
+    setup = function() require 'utils'.apply_mappings({ xnoremap = { ["<Leader>cc"] = "<cmd>CarbonNowSh<cr>" } }) end
+  }
+
+  use {
+    "nvim-neorg/neorg",
+    -- tag = "latest",
+    -- ft = "norg",
+    after = "dashboard-nvim",
+    config = config_load 'plugins.config.neorg',
+    requires = {
+      "nvim-neorg/neorg-telescope",
+      "nvim-lua/plenary.nvim"
+    }
+  }
+
+  use {
+    "itchyny/calendar.vim",
+    config = function()
+      vim.cmd("source ~/.whoami/credentials.vim")
+      vim.g.calendar_google_calendar = 1
+      vim.g.calendar_google_task = 1
+    end
+  }
+
+  -- misc
+  use {
+    'jamessan/vim-gnupg',
   }
 end
 

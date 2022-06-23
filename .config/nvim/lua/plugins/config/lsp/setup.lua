@@ -35,12 +35,19 @@ M.lsp = function(attach, capabilities)
 
       if server.name:match("eslint") then
         opts = {
-          on_attach = function (client)
-            if client.resolved_capabilities.document_formatting then
-              vim.cmd [[ autocmd BufWritePre <buffer> <cmd>EslintFixAll<cr> ]]
-            end
-          end
+          on_attach = function (client, bufnr)
+            client.resolved_capabilities.document_formatting = true
+            attach(client, bufnr)
+          end,
+          settings = { format = { enable = true } }
         }
+      end
+
+      if server.name:match("tsserver") then
+        opts.on_attach = function(client,bufnr)
+          client.resolved_capabilities.document_formatting = false
+          attach(client, bufnr)
+        end
       end
 
       server:setup(opts)

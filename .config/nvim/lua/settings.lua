@@ -6,7 +6,7 @@ local indent = 2
 M.options = {
   encoding = "utf8",
   termguicolors = true,
-  backspace = {"indent", "eol", "start"},
+  backspace = { "indent", "eol", "start" },
   cursorline = false,
   wrap = false,
   number = true,
@@ -25,10 +25,6 @@ M.g_options = {
   -- theme
   elite_mode = 1,
   edge_style = 'neon',
-  -- wikis
-  vimwiki_list = {
-    { path = '~/wikis/', syntax = 'markdown', ext = '.md' }
-  },
   -- markdown preview
   mkdp_browser = 'chrome',
 }
@@ -41,6 +37,22 @@ M.cmd_options = {
   "let mapleader = ' '"
 }
 
+M.fun = {
+  inject_metadata = function()
+    vim.cmd("NeorgStart silent=true")
+    vim.cmd("Neorg inject-metadata")
+
+  end,
+  create_task = function()
+    vim.cmd("NeorgStart silent=true")
+    vim.cmd("Neorg gtd capture")
+  end,
+  search_tasks = function()
+    vim.cmd("NeorgStart silent=true")
+    vim.cmd("Telescope neorg find_project_tasks")
+  end
+}
+
 M.mappings = {
   vmap = {
     -- Copy & paste to system clipboard with {<Space> + p} and {<Space> + y}
@@ -51,12 +63,31 @@ M.mappings = {
   },
 
   nnoremap = {
+    -- go back to daashboard
+    ["<Leader>gb"] = "<cmd>Dashboard<cr>",
     -- telescope mappings
     ["<Leader>ff"] = "<cmd>lua require('telescope.builtin').find_files()<cr>",
     ["<Leader>fw"] = "<cmd>lua require('telescope.builtin').live_grep()<cr>",
     ["<Leader>fb"] = "<cmd>lua require('telescope.builtin').buffers()<cr>",
     ["<Leader>fh"] = "<cmd>lua require('telescope.builtin').help_tags()<cr>",
-    ["<Leader>md"] = "<cmd>MarkdownPreviewToggle<cr>"
+    -- markdown preview
+    ["<Leader>md"] = "<cmd>MarkdownPreviewToggle<cr>",
+    -- open settings nvim
+    ["<Leader>om"] = "<cmd>vnew ~/.config/nvim/lua/settings.lua<cr>",
+    -- search task
+    ["<Leader>ft"] = "<cmd>lua require('settings').fun.search_tasks()<cr>",
+    -- create task
+    ["<Leader>c"] = "<cmd>lua require('settings').fun.create_task()<cr>",
+    -- inject metadata in norg files
+    ["<Leader>i"] = "<cmd>lua require('settings').fun.inject_metadata()<cr>",
+    -- zenmode
+    ["<Leader>z"] = "<cmd>ZenMode<cr>",
+    -- quit
+    ["<Leader>q"] = "<cmd>q<cr>",
+    --[[
+    -- create new map here
+    ["<Leader>?"] = "<cmd>?</cr>",
+    ]] --
   },
 
   nmap = {
@@ -76,9 +107,9 @@ M.mappings = {
     -- -> : for resize(+2) to righ
     --  V : for resize(+2) to bottom
     --  ^ : for resize(+2) to up
-    ["<Up>"]   = "<cmd>resize +2<cr>",
-    ["<Down>"] = "<cmd>resize -2<CR>",
-    ["<Left>"] =  "<cmd>vertical resize +2<CR>",
+    ["<Up>"]    = "<cmd>resize +2<cr>",
+    ["<Down>"]  = "<cmd>resize -2<CR>",
+    ["<Left>"]  = "<cmd>vertical resize +2<CR>",
     ["<Right>"] = "<cmd>vertical resize -2<CR>"
   }
 }
