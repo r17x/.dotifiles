@@ -1,25 +1,41 @@
-## Scripts (personal) 
+# Development and Build Scripts
 
-### Migrate to `ReScript`
-```shell
-for file in src/**/*.re;
-do
-CURRENT_FILE=$(pwd)/$file; NEW_FILE="$(echo $CURRENT_FILE | sed -e "s/\.re/\.res/g")"; ./node_modules/.bin/bsc  -format $CURRENT_FILE > $NEW_FILE; rm -f $CURRENT_FILE;
-done;
-```
-### Benchmark `zsh configuration`
+## Updating Icons
 
-```shell
-❯ for i in $(seq 1 10); do /usr/bin/time zsh -i -c exit; done
+The `src/svg` directory is the single source of truth for svgs. They should not already be optimized and can be the original svg export straight out of an svg editor. A build step before releasing will optimize the source svgs (remove comments, reduce the size, etc) and ensure they'll work within `ion-icon`.
 
-        0.46 real         0.31 user         0.13 sys
-        0.45 real         0.31 user         0.12 sys
-        0.43 real         0.30 user         0.12 sys
-        0.44 real         0.31 user         0.12 sys
-        0.44 real         0.30 user         0.12 sys
-        0.43 real         0.30 user         0.11 sys
-        0.43 real         0.30 user         0.11 sys
-        0.43 real         0.30 user         0.12 sys
-        0.43 real         0.30 user         0.12 sys
-        0.44 real         0.30 user         0.12 sys
-```
+
+## Build Locally
+
+After an svg has been updated, added or deleted from the `src/svg` directory, run:
+
+    npm run build
+
+The build command will optimize all of the icons and generate the files to be distributed. After the build command, all of the optimized svgs are saved in `dist/ionicons/svg`. Additionally the `dist` directory contains the distribution files for the `ion-icon` web component.
+
+
+## Svg Symbols Cheatsheet
+
+After a build, a new `www/cheatsheet.html` file will be created. This version uses svg symbols rather than `ion-icon`.
+
+
+## ion-icon Component Preview
+
+To see the `ion-icon` component in action, run:
+
+    npm start
+
+
+## Release Steps
+
+    npm run release.prepare
+
+The release script will ask what version to use. After the script completes, double check the `www/cheatsheet.html` to ensure everything is good to go.
+
+Next, update `CHANGELOG.md`, then commit and push your changes Github.
+
+Next run:
+
+    npm run release
+
+Triple check the version number is correct, and choose which tag this should be released as. If it's a pre-release, it should be `dev`.

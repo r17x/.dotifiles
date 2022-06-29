@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+
+FILE="~/.config/nvim/init.lua"
+
+if [[ -f ~/.config/nvim/init.lua ]]; then
+  mv ~/.config/nvim/__init.vim  ~/.config/nvim/init.vim
+  mv ~/.config/nvim/init.lua    ~/.config/nvim/__init.lua
+else 
+  echo 11
+  mv ~/.config/nvim/init.vim    ~/.config/nvim/__init.vim
+  mv ~/.config/nvim/__init.lua  ~/.config/nvim/init.lua
+fi

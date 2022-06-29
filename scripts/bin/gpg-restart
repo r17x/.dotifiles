@@ -4,4 +4,4 @@ gpgconf --kill gpg-agent
 killall gpg-agent
 gpg-agent --homedir "${GNUPGHOME:-$HOME/.gnupg}" \
   --daemon \
-  --pinentry-program "$(brew --prefix)/bin/pinentry-mac"
+  --pinentry-program /Users/r17/.nix-profile/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac

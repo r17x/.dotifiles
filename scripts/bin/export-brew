@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+command -v brew &>/dev/null || {
+  echo "Error [1]: brew not installed in your sysyem" 
+  exit 1 
+}
+
+BREW_DUMP="$HOME/.Brewfile"
+BREW_DUMP_BACKUPS="$HOME/.Brewfile_bak"
+BREW_DUMP_BACKUP="$BREW_DUMP_BACKUPS/$(date +%F).Brewfile" 
+
+if [[ -f "$BREW_DUMP" ]]; then
+ command mkdir -p "$BREW_DUMP_BACKUPS" && cp "$BREW_DUMP" "$BREW_DUMP_BACKUP"
+ if [[ -f "$BREW_DUMP_BACKUP" ]]; then
+   rm -f "$BREW_DUMP" && brew bundle dump --file="$BREW_DUMP"
+ fi
+fi
+
+# sync with git
+
+yadm add $BREW_DUMP && 
+  yadm commit -m "chore(OSX): update brewfile" &&
+    yadm push origin master  
