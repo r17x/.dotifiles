@@ -1,4 +1,7 @@
 <h1 align="center">
+ MOVED TO <a href="https://github.com/r17x/nixpkgs">r17x/nixpkgs</a>
+</h1>
+<h1 align="center">
 HeLL0 w0Rld ¯\_(ツ)_/¯
 </h1>
 
